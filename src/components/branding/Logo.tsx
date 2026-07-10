@@ -5,11 +5,23 @@ type LogoProps = {
 };
 
 export function Logo({ variant = 'horizontal', theme = 'light', className = '' }: LogoProps) {
-  const foreground = theme === 'dark' ? 'text-white' : 'text-slate-950';
+  const wordmarkBase = 'text-[1.05rem] font-semibold uppercase tracking-[0.08em] leading-none';
+  const firstPart = theme === 'dark' ? 'text-white' : 'text-[#071F52]';
+
   return (
-    <span className={`inline-flex items-center gap-2.5 ${foreground} ${className}`} aria-label="Yasaflow">
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#2185DC] text-sm font-bold text-white shadow-[0_8px_24px_rgba(33,133,220,0.28)]">Y</span>
-      {variant === 'horizontal' && <span className="text-lg font-semibold tracking-[-0.03em]">Yasaflow</span>}
+    <span className={`inline-flex items-center gap-2.5 ${className}`} aria-label="Yasaflow">
+      <img
+        src="/branding/yasaflow-icon.png"
+        alt=""
+        aria-hidden="true"
+        className="h-9 w-auto shrink-0 object-contain"
+      />
+      {variant === 'horizontal' && (
+        <span className={wordmarkBase} aria-hidden="true">
+          <span className={firstPart}>Yasa</span>
+          <span className="bg-gradient-to-r from-[#0972ED] to-[#14B8A6] bg-clip-text text-transparent">flow</span>
+        </span>
+      )}
     </span>
   );
 }

@@ -9,20 +9,20 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 ## Completed
 
 - Responsive mobile-first SaaS homepage
-- Reusable placeholder Logo component
+- Official Yasaflow v1 logo integrated through the reusable Logo component
+- Horizontal and icon-only logo variants
+- Light and dark logo presentation
 - Sticky responsive navigation and mobile menu
 - Refined Yasaflow-specific hero section
 - Dedicated “Why Yasaflow?” value section
 - Organization types, features, workflow, product previews, CTA and footer
 - Multilingual website in English, Norwegian and Turkish
 - Automatic first-language selection from browser language
-- Manual language selector in desktop, mobile and footer navigation
-- Persistent manual language selection using local storage
+- Manual and persistent language selection
 - Semantic page structure and accessible focus states
 
 ## Not started
 
-- Official SVG logo integration
 - Final routes and working authentication/onboarding links
 - Pricing, About, Contact, Privacy and Terms pages
 - Real anonymized product screenshots
