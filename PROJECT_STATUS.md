@@ -4,24 +4,25 @@ Last updated: July 10, 2026
 
 ## Current state
 
-The first production-quality public Yasaflow website UI is implemented with React, Vite, TypeScript and Tailwind CSS.
+The public Yasaflow website is implemented with React, Vite, TypeScript and Tailwind CSS.
 
 ## Completed
 
 - Responsive mobile-first SaaS homepage
-- Reusable placeholder Logo component with horizontal/icon and light/dark modes
+- Reusable placeholder Logo component
 - Sticky responsive navigation and mobile menu
 - Refined Yasaflow-specific hero section
 - Dedicated “Why Yasaflow?” value section
-- Hero product mockup
 - Organization types, features, workflow, product previews, CTA and footer
+- Multilingual website in English, Norwegian and Turkish
+- Automatic first-language selection from browser language
+- Manual language selector in desktop, mobile and footer navigation
+- Persistent manual language selection using local storage
 - Semantic page structure and accessible focus states
-- Vite production build setup
 
 ## Not started
 
 - Official SVG logo integration
-- Multilingual website with automatic browser/region default and manual selector
 - Final routes and working authentication/onboarding links
 - Pricing, About, Contact, Privacy and Terms pages
 - Real anonymized product screenshots
