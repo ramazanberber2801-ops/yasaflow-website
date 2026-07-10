@@ -11,7 +11,9 @@ The first production-quality public Yasaflow website UI is implemented with Reac
 - Responsive mobile-first SaaS homepage
 - Reusable placeholder Logo component with horizontal/icon and light/dark modes
 - Sticky responsive navigation and mobile menu
-- Hero and product mockup
+- Refined Yasaflow-specific hero section
+- Dedicated “Why Yasaflow?” value section
+- Hero product mockup
 - Organization types, features, workflow, product previews, CTA and footer
 - Semantic page structure and accessible focus states
 - Vite production build setup
@@ -19,8 +21,10 @@ The first production-quality public Yasaflow website UI is implemented with Reac
 ## Not started
 
 - Official SVG logo integration
+- Multilingual website with automatic browser/region default and manual selector
 - Final routes and working authentication/onboarding links
 - Pricing, About, Contact, Privacy and Terms pages
+- Real anonymized product screenshots
 - Framer Motion enhancements
 - Backend, API, database or Supabase integration
 
