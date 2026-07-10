@@ -1,37 +1,29 @@
 # Yasaflow Website – Project Status
 
-Last updated: July 2026
+Last updated: July 10, 2026
 
 ## Current state
 
-The public Yasaflow website repository has been initialized with React, Vite, TypeScript and Tailwind CSS.
+The first production-quality public Yasaflow website UI is implemented with React, Vite, TypeScript and Tailwind CSS.
 
 ## Completed
 
-- Responsive project foundation
+- Responsive mobile-first SaaS homepage
+- Reusable placeholder Logo component with horizontal/icon and light/dark modes
+- Sticky responsive navigation and mobile menu
+- Hero and product mockup
+- Organization types, features, workflow, product previews, CTA and footer
+- Semantic page structure and accessible focus states
 - Vite production build setup
-- Tailwind CSS integration
-- TypeScript configuration
-- ESLint configuration
-- Placeholder landing page
-- Vercel-ready repository structure
 
 ## Not started
 
-- Final visual identity
-- Full marketing homepage
-- Organization type selection
-- Module selection
-- Public onboarding form
-- Integration with the Yasaflow platform/Supabase
-- Login handoff to the platform
+- Official SVG logo integration
+- Final routes and working authentication/onboarding links
+- Pricing, About, Contact, Privacy and Terms pages
+- Framer Motion enhancements
+- Backend, API, database or Supabase integration
 
 ## Important product distinction
 
-### Current platform phase
-
-Owner-created onboarding is handled from Owner Dashboard V2 in the main Yasaflow platform.
-
-### Later website phase
-
-Public self-service onboarding will eventually allow a customer to register an organization from yasaflow.com. This is not implemented yet.
+This repository contains only the public website UI. Owner-created onboarding remains in the main Yasaflow platform; public self-service onboarding is a later phase.
