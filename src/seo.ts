@@ -4,7 +4,7 @@ import type { Locale } from './i18n';
 const SITE_URL = 'https://yasaflow.com';
 const SOCIAL_IMAGE = `${SITE_URL}/branding/yasaflow-icon.png`;
 
-type RouteKey = 'home' | 'about' | 'contact' | 'privacy' | 'terms' | 'faq' | 'notFound';
+type RouteKey = 'home' | 'about' | 'contact' | 'privacy' | 'terms' | 'faq' | 'security' | 'roadmap' | 'integrations' | 'notFound';
 type Metadata = { title: string; description: string };
 
 const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
@@ -15,6 +15,9 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     privacy: { title: 'Privacy — Yasaflow', description: 'Read the current privacy information for the Yasaflow public website and how direct email enquiries are handled.' },
     terms: { title: 'Website Terms — Yasaflow', description: 'Read the current terms for using the Yasaflow public website and its informational product content.' },
     faq: { title: 'Frequently Asked Questions — Yasaflow', description: 'Find clear answers about Yasaflow, modules, administration, mobile access, languages, privacy and the platform’s product direction.' },
+    security: { title: 'Security and Trust — Yasaflow', description: 'Read Yasaflow’s transparent security direction, including access control, data protection, encryption, backups, logging and incident readiness.' },
+    roadmap: { title: 'Product Roadmap — Yasaflow', description: 'Explore Yasaflow’s transparent product direction with clear available, in-development, planned and research statuses.' },
+    integrations: { title: 'Integrations — Yasaflow', description: 'See Yasaflow’s integration direction and honest statuses for email, push notifications, payments, calendars, accounting and APIs.' },
     notFound: { title: 'Page not found — Yasaflow', description: 'The requested Yasaflow page could not be found.' },
   },
   nb: {
@@ -24,6 +27,9 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     privacy: { title: 'Personvern — Yasaflow', description: 'Les gjeldende personverninformasjon for Yasaflows offentlige nettside og hvordan e-posthenvendelser behandles.' },
     terms: { title: 'Vilkår for nettsiden — Yasaflow', description: 'Les gjeldende vilkår for bruk av Yasaflows offentlige nettside og informasjonsinnhold.' },
     faq: { title: 'Ofte stilte spørsmål — Yasaflow', description: 'Finn tydelige svar om Yasaflow, moduler, administrasjon, mobiltilgang, språk, personvern og produktretningen.' },
+    security: { title: 'Sikkerhet og tillit — Yasaflow', description: 'Les Yasaflows åpne sikkerhetsretning for tilgang, databeskyttelse, kryptering, sikkerhetskopi, logging og hendelseshåndtering.' },
+    roadmap: { title: 'Produktveikart — Yasaflow', description: 'Utforsk Yasaflows tydelige produktretning med statusene tilgjengelig, under utvikling, planlagt og utforskes.' },
+    integrations: { title: 'Integrasjoner — Yasaflow', description: 'Se Yasaflows integrasjonsretning og ærlige statuser for e-post, pushvarsler, betaling, kalender, regnskap og API.' },
     notFound: { title: 'Siden ble ikke funnet — Yasaflow', description: 'Den forespurte Yasaflow-siden finnes ikke.' },
   },
   tr: {
@@ -33,18 +39,19 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     privacy: { title: 'Gizlilik — Yasaflow', description: 'Yasaflow halka açık web sitesinin mevcut gizlilik bilgilerini ve doğrudan e-posta taleplerinin nasıl işlendiğini okuyun.' },
     terms: { title: 'Web Sitesi Koşulları — Yasaflow', description: 'Yasaflow halka açık web sitesinin ve bilgilendirme içeriğinin kullanım koşullarını okuyun.' },
     faq: { title: 'Sık Sorulan Sorular — Yasaflow', description: 'Yasaflow, modüller, yönetim, mobil erişim, diller, gizlilik ve ürün yönü hakkında net cevaplar bulun.' },
+    security: { title: 'Güvenlik ve Güven — Yasaflow', description: 'Erişim kontrolü, veri koruma, şifreleme, yedekleme, kayıt ve olay hazırlığı dahil Yasaflow’un şeffaf güvenlik yönünü okuyun.' },
+    roadmap: { title: 'Ürün Yol Haritası — Yasaflow', description: 'Mevcut, geliştirilmekte, planlandı ve araştırma durumlarıyla Yasaflow’un şeffaf ürün yönünü keşfedin.' },
+    integrations: { title: 'Entegrasyonlar — Yasaflow', description: 'E-posta, anlık bildirimler, ödemeler, takvimler, muhasebe ve API için Yasaflow’un entegrasyon yönünü ve dürüst durumlarını görün.' },
     notFound: { title: 'Sayfa bulunamadı — Yasaflow', description: 'İstenen Yasaflow sayfası bulunamadı.' },
   },
 };
 
 const routeKey = (path: string): RouteKey => {
-  if (path === '/') return 'home';
-  if (path === '/about') return 'about';
-  if (path === '/contact') return 'contact';
-  if (path === '/privacy') return 'privacy';
-  if (path === '/terms') return 'terms';
-  if (path === '/faq') return 'faq';
-  return 'notFound';
+  const routes: Record<string, RouteKey> = {
+    '/': 'home', '/about': 'about', '/contact': 'contact', '/privacy': 'privacy', '/terms': 'terms',
+    '/faq': 'faq', '/security': 'security', '/roadmap': 'roadmap', '/integrations': 'integrations',
+  };
+  return routes[path] ?? 'notFound';
 };
 
 function setMeta(selector: string, attributes: Record<string, string>, content: string) {
