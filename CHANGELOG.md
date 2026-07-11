@@ -9,6 +9,7 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Multilingual Module Library at `/modules` with search and category filters.
 - Route- and language-specific SEO metadata, sitemap, manifest and favicon.
 - Reusable Owner Dashboard, Administrator Dashboard and Mobile App mockup components.
+- Multilingual FAQ page with accessible native accordion sections.
 
 ### Changed
 - Replaced the homepage’s gray product placeholders with realistic Yasaflow UI concepts.

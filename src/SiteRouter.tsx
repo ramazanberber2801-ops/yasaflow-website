@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
+import TrustPage from './TrustPages';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
 import { useI18n } from './i18n';
 
@@ -12,6 +13,7 @@ export default function SiteRouter() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
   if (path === '/modules') return <><ModuleMetadata locale={locale} /><ModuleLibrary /></>;
+  if (path === '/faq') return <TrustPage path="/faq" locale={locale} />;
 
   function handleProductNavigation(event: MouseEvent<HTMLDivElement>) {
     if (path !== '/') return;

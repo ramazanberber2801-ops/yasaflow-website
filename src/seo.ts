@@ -4,7 +4,7 @@ import type { Locale } from './i18n';
 const SITE_URL = 'https://yasaflow.com';
 const SOCIAL_IMAGE = `${SITE_URL}/branding/yasaflow-icon.png`;
 
-type RouteKey = 'home' | 'about' | 'contact' | 'privacy' | 'terms' | 'notFound';
+type RouteKey = 'home' | 'about' | 'contact' | 'privacy' | 'terms' | 'faq' | 'notFound';
 type Metadata = { title: string; description: string };
 
 const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
@@ -14,6 +14,7 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     contact: { title: 'Contact Yasaflow — Book a demo', description: 'Contact Yasaflow to discuss your organization, explore relevant modules and book a product demo.' },
     privacy: { title: 'Privacy — Yasaflow', description: 'Read the current privacy information for the Yasaflow public website and how direct email enquiries are handled.' },
     terms: { title: 'Website Terms — Yasaflow', description: 'Read the current terms for using the Yasaflow public website and its informational product content.' },
+    faq: { title: 'Frequently Asked Questions — Yasaflow', description: 'Find clear answers about Yasaflow, modules, administration, mobile access, languages, privacy and the platform’s product direction.' },
     notFound: { title: 'Page not found — Yasaflow', description: 'The requested Yasaflow page could not be found.' },
   },
   nb: {
@@ -22,6 +23,7 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     contact: { title: 'Kontakt Yasaflow — Bestill demo', description: 'Kontakt Yasaflow for å diskutere organisasjonen, utforske aktuelle moduler og bestille en produktdemo.' },
     privacy: { title: 'Personvern — Yasaflow', description: 'Les gjeldende personverninformasjon for Yasaflows offentlige nettside og hvordan e-posthenvendelser behandles.' },
     terms: { title: 'Vilkår for nettsiden — Yasaflow', description: 'Les gjeldende vilkår for bruk av Yasaflows offentlige nettside og informasjonsinnhold.' },
+    faq: { title: 'Ofte stilte spørsmål — Yasaflow', description: 'Finn tydelige svar om Yasaflow, moduler, administrasjon, mobiltilgang, språk, personvern og produktretningen.' },
     notFound: { title: 'Siden ble ikke funnet — Yasaflow', description: 'Den forespurte Yasaflow-siden finnes ikke.' },
   },
   tr: {
@@ -30,6 +32,7 @@ const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
     contact: { title: 'Yasaflow ile İletişim — Demo isteyin', description: 'Kuruluşunuzu görüşmek, ilgili modülleri keşfetmek ve ürün demosu istemek için Yasaflow ile iletişime geçin.' },
     privacy: { title: 'Gizlilik — Yasaflow', description: 'Yasaflow halka açık web sitesinin mevcut gizlilik bilgilerini ve doğrudan e-posta taleplerinin nasıl işlendiğini okuyun.' },
     terms: { title: 'Web Sitesi Koşulları — Yasaflow', description: 'Yasaflow halka açık web sitesinin ve bilgilendirme içeriğinin kullanım koşullarını okuyun.' },
+    faq: { title: 'Sık Sorulan Sorular — Yasaflow', description: 'Yasaflow, modüller, yönetim, mobil erişim, diller, gizlilik ve ürün yönü hakkında net cevaplar bulun.' },
     notFound: { title: 'Sayfa bulunamadı — Yasaflow', description: 'İstenen Yasaflow sayfası bulunamadı.' },
   },
 };
@@ -40,6 +43,7 @@ const routeKey = (path: string): RouteKey => {
   if (path === '/contact') return 'contact';
   if (path === '/privacy') return 'privacy';
   if (path === '/terms') return 'terms';
+  if (path === '/faq') return 'faq';
   return 'notFound';
 };
 
@@ -95,14 +99,6 @@ export function usePageMetadata(path: string, locale: Locale) {
       schema.dataset.yasaflowSchema = 'true';
       document.head.appendChild(schema);
     }
-    schema.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Yasaflow',
-      url: SITE_URL,
-      logo: SOCIAL_IMAGE,
-      email: 'hello@yasaflow.com',
-      description: metadata[locale].home.description,
-    });
+    schema.text = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Yasaflow', url: SITE_URL, logo: SOCIAL_IMAGE, email: 'hello@yasaflow.com', description: metadata[locale].home.description });
   }, [locale, path]);
 }

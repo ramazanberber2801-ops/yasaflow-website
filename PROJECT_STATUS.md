@@ -16,10 +16,15 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Realistic reusable product mockups for Owner Dashboard, Administrator Dashboard and Mobile App
 - Homepage product preview upgraded from placeholders to product UI concepts
 - Dedicated About, Contact, Privacy and Terms pages
+- Multilingual FAQ page with accessible accordion sections
 - Lightweight public routing and Vercel rewrites
 - Route- and language-specific SEO metadata
 - Canonical URLs, Open Graph and Twitter metadata
 - robots.txt, sitemap.xml, manifest and favicon
+
+## In progress
+
+- Security, Roadmap and Integrations trust pages
 
 ## Not started
 
@@ -28,8 +33,6 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Working authentication/onboarding destinations
 - Final legal review of Privacy and Terms
 - Real screenshots from the production platform
-- FAQ, Security, Roadmap and Integrations pages
-- Framer Motion enhancements
 - Production analytics and Search Console verification
 
 ## Product mockup rule
