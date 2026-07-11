@@ -12,13 +12,14 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Official Yasaflow v1 logo integrated through the reusable Logo component
 - Multilingual website in English, Norwegian and Turkish
 - Shared central module catalog used by homepage module interfaces
-- Public module visibility rules and stable module IDs documented
-- Dedicated multilingual About page
-- Dedicated multilingual Contact page
-- Dedicated multilingual Privacy and Terms draft pages
-- Lightweight public routing without additional dependencies
-- Vercel rewrites for direct access to public routes
-- 404 fallback page
+- Dedicated About, Contact, Privacy and Terms pages
+- Lightweight public routing and Vercel rewrites
+- Route- and language-specific titles and meta descriptions
+- Canonical URLs, Open Graph and Twitter metadata
+- Organization structured data
+- robots.txt and sitemap.xml
+- Web app manifest, theme color and favicon
+- 404 pages are marked noindex
 
 ## Not started
 
@@ -28,11 +29,11 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Final legal review of Privacy and Terms
 - Real anonymized product screenshots
 - Framer Motion enhancements
-- Backend, API, database or Supabase integration
+- Production analytics and Search Console verification
 
-## Important product distinction
+## SEO language limitation
 
-This repository contains only the public website UI. Owner-created onboarding remains in the main Yasaflow platform; public self-service onboarding is a later phase.
+The three languages currently share the same URLs and the selected language is stored locally. Therefore, hreflang links are intentionally not published yet. They should be added only when each language has a stable, crawlable URL.
 
 ## Permanent module rule
 

@@ -1,0 +1,17 @@
+{
+  "name": "Yasaflow",
+  "short_name": "Yasaflow",
+  "description": "One digital home for organizations and communities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FBFF",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/branding/yasaflow-icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
