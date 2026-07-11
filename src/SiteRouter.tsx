@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
+import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
 import { useI18n } from './i18n';
 
 const productLabels = new Set(['Products', 'Produkter', 'Ürünler']);
@@ -21,5 +22,8 @@ export default function SiteRouter() {
     window.location.assign('/modules');
   }
 
-  return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}><PublicRouter /></div>;
+  return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
+    <PublicRouter />
+    {path === '/' && <ProductPreviewEnhancer locale={locale} />}
+  </div>;
 }
