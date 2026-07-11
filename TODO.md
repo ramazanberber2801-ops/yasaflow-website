@@ -1,12 +1,12 @@
 # Yasaflow Website – Next Tasks
 
-1. Finalize the pricing model and approved prices before exposing a calculator.
-2. Design the modular pricing page using only publicly visible modules from `src/modules/`.
-3. Connect CTA and login links to approved destinations.
-4. Complete legal review of Privacy and Terms before public launch.
-5. Add real anonymized product screenshots.
-6. Add subtle Framer Motion interactions after visual review.
-7. Add production analytics and Search Console verification after privacy review.
-8. Introduce language-specific URLs before publishing hreflang metadata.
+1. Replace homepage product placeholders with realistic Owner, Administrator and Mobile App mockups.
+2. Add FAQ and Security pages.
+3. Add Roadmap and Integrations pages using honest status labels.
+4. Finalize the pricing model before exposing prices or a calculator.
+5. Connect CTA and login links to approved destinations.
+6. Complete legal review of Privacy and Terms.
+7. Add subtle Framer Motion interactions after visual review.
+8. Add production analytics and Search Console verification after privacy review.
 
-Backend integration with the platform module source comes later. Until then, use the typed local adapter in `src/modules/`.
+The Module Library must continue to consume `getPublicModules()` and must never maintain a separate hardcoded module list.

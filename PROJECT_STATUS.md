@@ -11,15 +11,16 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Responsive mobile-first SaaS homepage
 - Official Yasaflow v1 logo integrated through the reusable Logo component
 - Multilingual website in English, Norwegian and Turkish
-- Shared central module catalog used by homepage module interfaces
+- Shared central module catalog used by homepage and Module Library interfaces
+- Dedicated `/modules` page with search and category filtering
+- Included modules and optional extensions clearly distinguished
 - Dedicated About, Contact, Privacy and Terms pages
 - Lightweight public routing and Vercel rewrites
-- Route- and language-specific titles and meta descriptions
+- Route- and language-specific SEO metadata
 - Canonical URLs, Open Graph and Twitter metadata
 - Organization structured data
-- robots.txt and sitemap.xml
-- Web app manifest, theme color and favicon
-- 404 pages are marked noindex
+- robots.txt, sitemap.xml, manifest and favicon
+- 404 pages marked noindex
 
 ## Not started
 
@@ -28,13 +29,10 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Working authentication/onboarding destinations
 - Final legal review of Privacy and Terms
 - Real anonymized product screenshots
+- FAQ, Security, Roadmap and Integrations pages
 - Framer Motion enhancements
 - Production analytics and Search Console verification
 
-## SEO language limitation
-
-The three languages currently share the same URLs and the selected language is stored locally. Therefore, hreflang links are intentionally not published yet. They should be added only when each language has a stable, crawlable URL.
-
 ## Permanent module rule
 
-Only modules that are operational, `active`, and explicitly marked `visibleOnWebsite` may appear publicly. Beta modules additionally require `betaWebsiteEnabled = true`. Website interfaces must consume the shared module source rather than hardcoded module lists.
+Only operational modules that are `active` and `visibleOnWebsite` may appear publicly. Beta modules additionally require `betaWebsiteEnabled = true`. All public module interfaces must consume the shared source in `src/modules/`.

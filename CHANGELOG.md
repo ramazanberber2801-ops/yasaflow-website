@@ -13,12 +13,13 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Canonical URLs, Open Graph and Twitter Card metadata.
 - Organization structured data.
 - `robots.txt`, `sitemap.xml`, web app manifest and favicon.
+- Multilingual Module Library at `/modules`.
+- Module search, category filtering and included/extension labels.
 
 ### Changed
 - Replaced homepage hardcoded module lists with `getPublicModules()`.
-- Distinguished included modules from optional extensions without exposing prices.
-- Connected homepage navigation to dedicated public pages.
-- Marked unknown routes as `noindex, nofollow`.
+- Connected the Products navigation item to the Module Library.
+- Added the Module Library to the public sitemap and canonical metadata.
 
 ## 2026-07-10
 
