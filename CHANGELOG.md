@@ -2,6 +2,17 @@
 
 All meaningful changes to the Yasaflow public website are recorded here.
 
+## 2026-07-11
+
+### Added
+- Typed module catalog contract with permanent module IDs.
+- Temporary local module source shaped for future platform/Supabase integration.
+- Public module filtering helpers.
+- Permanent module visibility and pricing architecture documentation.
+
+### Changed
+- Updated project status and task order for dynamic module catalog and modular pricing.
+
 ## 2026-07-10
 
 ### Added
