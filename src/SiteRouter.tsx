@@ -16,6 +16,7 @@ export default function SiteRouter() {
   if (path === '/faq') return <TrustPage path="/faq" locale={locale} />;
   if (path === '/security') return <TrustPage path="/security" locale={locale} />;
   if (path === '/roadmap') return <TrustPage path="/roadmap" locale={locale} />;
+  if (path === '/integrations') return <TrustPage path="/integrations" locale={locale} />;
 
   function handleProductNavigation(event: MouseEvent<HTMLDivElement>) {
     if (path !== '/') return;

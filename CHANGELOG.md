@@ -10,10 +10,14 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Route- and language-specific SEO metadata, sitemap, manifest and favicon.
 - Reusable Owner Dashboard, Administrator Dashboard and Mobile App mockup components.
 - Multilingual FAQ page with accessible native accordion sections.
+- Transparent Security page with honest implementation statuses.
+- Public Roadmap page with available, in-development, planned and research labels.
+- Integrations page that distinguishes product direction from verified live connections.
 
 ### Changed
 - Replaced the homepage’s gray product placeholders with realistic Yasaflow UI concepts.
 - Kept product previews free of fake statistics, customer names and misleading product claims.
+- Extended multilingual SEO metadata and the sitemap for all new trust pages.
 
 ## 2026-07-10
 
