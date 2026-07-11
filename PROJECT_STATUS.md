@@ -11,19 +11,21 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Responsive mobile-first SaaS homepage
 - Official Yasaflow v1 logo integrated through the reusable Logo component
 - Multilingual website in English, Norwegian and Turkish
-- Shared module catalog contract prepared for future platform/Supabase integration
+- Shared central module catalog used by homepage module interfaces
 - Public module visibility rules and stable module IDs documented
-- Homepage hero preview and module library consume the central module source
-- Active and publicly visible modules appear automatically in website module interfaces
-- Development, coming soon, retired and non-enabled beta modules remain hidden
-- Included modules and optional extensions are distinguished without publishing prices
+- Dedicated multilingual About page
+- Dedicated multilingual Contact page
+- Dedicated multilingual Privacy and Terms draft pages
+- Lightweight public routing without additional dependencies
+- Vercel rewrites for direct access to public routes
+- 404 fallback page
 
 ## Not started
 
 - Pricing calculator UI and approved customer prices
 - Live module source from the Yasaflow platform/Supabase
-- Final routes and working authentication/onboarding links
-- Pricing, About, Contact, Privacy and Terms pages
+- Working authentication/onboarding destinations
+- Final legal review of Privacy and Terms
 - Real anonymized product screenshots
 - Framer Motion enhancements
 - Backend, API, database or Supabase integration

@@ -11,11 +11,15 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Permanent module visibility and pricing architecture documentation.
 - Localized module names and descriptions in the central catalog.
 - Shared icon resolver for module metadata.
+- Multilingual About, Contact, Privacy and Terms pages.
+- Lightweight public routing and Vercel rewrites for direct route access.
+- 404 fallback page.
 
 ### Changed
 - Updated project status and task order for dynamic module catalog and modular pricing.
 - Replaced the homepage hardcoded feature list and hero module preview with data from `getPublicModules()`.
 - Distinguished included modules from optional extensions without exposing unapproved prices.
+- Connected homepage navigation labels to dedicated public pages.
 
 ## 2026-07-10
 
