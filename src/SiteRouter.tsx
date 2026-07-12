@@ -5,6 +5,7 @@ import PublicRouter from './PublicRouter';
 import TrustPage from './TrustPages';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
+import { SiteNavigationEnhancer } from './components/product/SiteNavigationEnhancer';
 import { useI18n } from './i18n';
 
 const productLabels = new Set(['Products', 'Produkter', 'Ürünler']);
@@ -30,6 +31,6 @@ export default function SiteRouter() {
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
     <PublicRouter />
-    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /></>}
+    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /><SiteNavigationEnhancer locale={locale} /></>}
   </div>;
 }
