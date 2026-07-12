@@ -3,6 +3,7 @@ import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
 import TrustPage from './TrustPages';
+import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
 import { useI18n } from './i18n';
 
@@ -29,6 +30,6 @@ export default function SiteRouter() {
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
     <PublicRouter />
-    {path === '/' && <ProductPreviewEnhancer locale={locale} />}
+    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /></>}
   </div>;
 }
