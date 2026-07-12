@@ -6,6 +6,7 @@ import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
+import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
 import { SiteNavigationEnhancer } from './components/product/SiteNavigationEnhancer';
 import { useI18n } from './i18n';
@@ -34,6 +35,6 @@ export default function SiteRouter() {
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
     <PublicRouter />
-    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /><SiteNavigationEnhancer locale={locale} /></>}
+    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><HeaderNavigationEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /><SiteNavigationEnhancer locale={locale} /></>}
   </div>;
 }
