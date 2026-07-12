@@ -13,6 +13,7 @@ export function HeaderNavigationEnhancer({ locale }: { locale: Locale }) {
   useLayoutEffect(() => {
     const header = document.querySelector('header');
     if (!header) return;
+    header.classList.add('sticky', 'top-0', 'z-50', 'bg-white/95', 'backdrop-blur-xl');
 
     const navs = header.querySelectorAll('nav');
     navs.forEach((nav) => {

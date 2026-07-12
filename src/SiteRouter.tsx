@@ -1,10 +1,11 @@
-import type { MouseEvent } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
+import { GlobalHeader } from './components/navigation/GlobalHeader';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
@@ -17,12 +18,14 @@ export default function SiteRouter() {
   const { locale } = useI18n();
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
-  if (path === '/modules') return <><ModuleMetadata locale={locale} /><ModuleLibrary /></>;
-  if (path === '/resources') return <><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>;
-  if (path === '/faq') return <TrustPage path="/faq" locale={locale} />;
-  if (path === '/security') return <TrustPage path="/security" locale={locale} />;
-  if (path === '/roadmap') return <TrustPage path="/roadmap" locale={locale} />;
-  if (path === '/integrations') return <TrustPage path="/integrations" locale={locale} />;
+  const withGlobalHeader = (content: ReactNode) => <><GlobalHeader locale={locale} path={path} /><div className="[&>div>header]:hidden [&>header]:hidden">{content}</div></>;
+
+  if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
+  if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
+  if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
+  if (path === '/security') return withGlobalHeader(<TrustPage path="/security" locale={locale} />);
+  if (path === '/roadmap') return withGlobalHeader(<TrustPage path="/roadmap" locale={locale} />);
+  if (path === '/integrations') return withGlobalHeader(<TrustPage path="/integrations" locale={locale} />);
 
   function handleProductNavigation(event: MouseEvent<HTMLDivElement>) {
     if (path !== '/') return;
@@ -33,8 +36,13 @@ export default function SiteRouter() {
     window.location.assign('/modules');
   }
 
+  if (path !== '/') return withGlobalHeader(<PublicRouter />);
+
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
     <PublicRouter />
-    {path === '/' && <><AudienceCopyEnhancer locale={locale} /><HeaderNavigationEnhancer locale={locale} /><ProductPreviewEnhancer locale={locale} /><SiteNavigationEnhancer locale={locale} /></>}
+    <AudienceCopyEnhancer locale={locale} />
+    <HeaderNavigationEnhancer locale={locale} />
+    <ProductPreviewEnhancer locale={locale} />
+    <SiteNavigationEnhancer locale={locale} />
   </div>;
 }
