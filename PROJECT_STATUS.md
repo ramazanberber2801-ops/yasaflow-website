@@ -1,6 +1,6 @@
 # Yasaflow Website – Project Status
 
-Last updated: July 11, 2026
+Last updated: July 12, 2026
 
 ## Current state
 
@@ -17,6 +17,7 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Homepage product preview upgraded from placeholders to product UI concepts
 - Dedicated About, Contact, Privacy and Terms pages
 - Multilingual FAQ, Security, Roadmap and Integrations pages
+- Multilingual Resources and Documentation center at `/resources`
 - Honest status language that avoids presenting planned capabilities as live
 - Lightweight public routing and Vercel rewrites
 - Route- and language-specific SEO metadata
@@ -30,7 +31,6 @@ The public Yasaflow website is implemented with React, Vite, TypeScript and Tail
 - Working authentication/onboarding destinations
 - Final legal review of Privacy and Terms
 - Real screenshots from the production platform
-- Documentation center
 - Production analytics and Search Console verification
 - Final accessibility and performance audit
 

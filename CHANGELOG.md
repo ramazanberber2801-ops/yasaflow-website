@@ -2,6 +2,16 @@
 
 All meaningful changes to the Yasaflow public website are recorded here.
 
+## 2026-07-12
+
+### Added
+- Multilingual Resources and Documentation center at `/resources`.
+- Direct navigation from the Resources center to FAQ, Security, Roadmap and Integrations.
+- Dedicated route metadata and sitemap entry for the Resources center.
+
+### Changed
+- Added a localized Resources link to the website footer.
+
 ## 2026-07-11
 
 ### Added

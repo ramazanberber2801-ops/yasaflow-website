@@ -2,6 +2,8 @@ import type { MouseEvent } from 'react';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
+import ResourcesPage from './ResourcesPage';
+import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
@@ -15,6 +17,7 @@ export default function SiteRouter() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
   if (path === '/modules') return <><ModuleMetadata locale={locale} /><ModuleLibrary /></>;
+  if (path === '/resources') return <><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>;
   if (path === '/faq') return <TrustPage path="/faq" locale={locale} />;
   if (path === '/security') return <TrustPage path="/security" locale={locale} />;
   if (path === '/roadmap') return <TrustPage path="/roadmap" locale={locale} />;
