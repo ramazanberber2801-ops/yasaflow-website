@@ -2,6 +2,18 @@
 
 All meaningful changes to the Yasaflow public website are recorded here.
 
+## 2026-07-13
+
+### Added
+- Shared sticky navigation across every public route.
+- Keyboard focus styling, multilingual skip links and reduced-motion support.
+- Mobile layout refinements for small screens, including safer text wrapping and tighter spacing.
+- Production response headers and long-lived caching for versioned static assets.
+
+### Changed
+- Improved mobile navigation width, active-state visibility and header spacing.
+- Updated project status for first-launch review and documented remaining launch dependencies.
+
 ## 2026-07-12
 
 ### Added
