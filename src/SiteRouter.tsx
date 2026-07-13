@@ -1,7 +1,7 @@
 import type { MouseEvent, ReactNode } from 'react';
+import ConnectedOnboardingPage from './ConnectedOnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
-import OnboardingPage from './OnboardingPage';
 import PublicRouter from './PublicRouter';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
@@ -28,7 +28,7 @@ export default function SiteRouter() {
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
   </>;
 
-  if (path === '/get-started' || path === '/register') return <OnboardingPage />;
+  if (path === '/get-started' || path === '/register') return <ConnectedOnboardingPage />;
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
   if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
