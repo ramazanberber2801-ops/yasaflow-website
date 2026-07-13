@@ -5,6 +5,7 @@ import PublicRouter from './PublicRouter';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
+import { AccessibilityEnhancer } from './components/navigation/AccessibilityEnhancer';
 import { GlobalHeader } from './components/navigation/GlobalHeader';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
@@ -18,7 +19,11 @@ export default function SiteRouter() {
   const { locale } = useI18n();
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
-  const withGlobalHeader = (content: ReactNode) => <><GlobalHeader locale={locale} path={path} /><div className="[&>div>header]:hidden [&>header]:hidden">{content}</div></>;
+  const withGlobalHeader = (content: ReactNode) => <>
+    <GlobalHeader locale={locale} path={path} />
+    <AccessibilityEnhancer locale={locale} />
+    <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
+  </>;
 
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
@@ -39,6 +44,7 @@ export default function SiteRouter() {
   if (path !== '/') return withGlobalHeader(<PublicRouter />);
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
+    <AccessibilityEnhancer locale={locale} showSkipLink />
     <PublicRouter />
     <AudienceCopyEnhancer locale={locale} />
     <HeaderNavigationEnhancer locale={locale} />
