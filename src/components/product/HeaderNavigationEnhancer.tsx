@@ -1,10 +1,10 @@
 import { useLayoutEffect } from 'react';
 import type { Locale } from '../../i18n';
 
-const copy: Record<Locale, { resources: string; loginNotice: string }> = {
-  en: { resources: 'Resources', loginNotice: 'Public login is not available yet. Contact Yasaflow for product access.' },
-  nb: { resources: 'Ressurser', loginNotice: 'Offentlig innlogging er ikke tilgjengelig ennå. Kontakt Yasaflow for produkttilgang.' },
-  tr: { resources: 'Kaynaklar', loginNotice: 'Herkese açık giriş henüz kullanılamıyor. Ürün erişimi için Yasaflow ile iletişime geçin.' },
+const copy: Record<Locale, { resources: string; loginNotice: string; startLabels: string[] }> = {
+  en: { resources: 'Resources', loginNotice: 'Public login is not available yet. Contact Yasaflow for product access.', startLabels: ['Get Started', 'Create Organization', 'Ready to get started?'] },
+  nb: { resources: 'Ressurser', loginNotice: 'Offentlig innlogging er ikke tilgjengelig ennå. Kontakt Yasaflow for produkttilgang.', startLabels: ['Kom i gang', 'Opprett organisasjon', 'Klar til å komme i gang?'] },
+  tr: { resources: 'Kaynaklar', loginNotice: 'Herkese açık giriş henüz kullanılamıyor. Ürün erişimi için Yasaflow ile iletişime geçin.', startLabels: ['Başlayın', 'Kuruluş oluştur', 'Başlamaya hazır mısınız?'] },
 };
 
 const destinations = ['/modules', '#solutions', '/resources', '/about', '/contact'];
@@ -24,16 +24,18 @@ export function HeaderNavigationEnhancer({ locale }: { locale: Locale }) {
       });
     });
 
-    const desktopLinks = Array.from(header.querySelectorAll<HTMLAnchorElement>('a'));
-    const loginLink = desktopLinks.find((link) => ['Log in', 'Logg inn', 'Giriş yap'].includes(link.textContent?.trim() ?? ''));
+    const anchors = Array.from(document.querySelectorAll<HTMLAnchorElement>('a'));
+    const loginLink = anchors.find((link) => ['Log in', 'Logg inn', 'Giriş yap'].includes(link.textContent?.trim() ?? ''));
     if (loginLink) {
       loginLink.href = '/contact';
       loginLink.title = copy[locale].loginNotice;
       loginLink.setAttribute('aria-label', `${loginLink.textContent?.trim()}. ${copy[locale].loginNotice}`);
     }
 
-    document.querySelectorAll<HTMLAnchorElement>('a[href="#contact"]').forEach((link) => {
-      link.href = '/contact';
+    anchors.forEach((link) => {
+      const label = link.textContent?.trim() ?? '';
+      if (copy[locale].startLabels.some((startLabel) => label.includes(startLabel))) link.href = '/get-started';
+      else if (link.getAttribute('href') === '#contact') link.href = '/contact';
     });
   }, [locale]);
 

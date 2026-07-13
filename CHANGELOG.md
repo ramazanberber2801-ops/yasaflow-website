@@ -9,9 +9,14 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Keyboard focus styling, multilingual skip links and reduced-motion support.
 - Mobile layout refinements for small screens, including safer text wrapping and tighter spacing.
 - Production response headers and long-lived caching for versioned static assets.
+- Five-step multilingual self-service onboarding at `/get-started`.
+- Account, organization, subscription preference, module selection and review steps.
+- Safe non-persistent preview mode when Supabase is not configured.
 
 ### Changed
 - Improved mobile navigation width, active-state visibility and header spacing.
+- Connected homepage start and organization-creation CTAs to onboarding.
+- Kept subscription choices price-free and explicitly non-binding until approved pricing and payment are connected.
 - Updated project status for first-launch review and documented remaining launch dependencies.
 
 ## 2026-07-12
@@ -28,7 +33,7 @@ All meaningful changes to the Yasaflow public website are recorded here.
 
 ### Added
 - Typed central module catalog with permanent IDs and visibility rules.
-- Multilingual Module Library at `/modules` with search and category filters.
+- Multilingual Module Library at `/modules` with search and category filtering.
 - Route- and language-specific SEO metadata, sitemap, manifest and favicon.
 - Reusable Owner Dashboard, Administrator Dashboard and Mobile App mockup components.
 - Multilingual FAQ page with accessible native accordion sections.
