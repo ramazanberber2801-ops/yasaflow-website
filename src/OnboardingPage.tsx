@@ -34,8 +34,9 @@ const copy: Record<Locale, Copy> = {
   }
 };
 
-async function signup(email: string, password: string, fullName: string) {
-  const response = await fetch(`${supabaseUrl}/auth/v1/signup`, { method: 'POST', headers: { apikey: supabaseAnonKey!, Authorization: `Bearer ${supabaseAnonKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, data: { full_name: fullName } }) });
+async function signup(email: string, password: string, fullName: string, locale: Locale) {
+  const redirectTo = `${window.location.origin}/get-started`;
+  const response = await fetch(`${supabaseUrl}/auth/v1/signup?redirect_to=${encodeURIComponent(redirectTo)}`, { method: 'POST', headers: { apikey: supabaseAnonKey!, Authorization: `Bearer ${supabaseAnonKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, data: { full_name: fullName, locale } }) });
   const data = await response.json() as { access_token?: string; error_description?: string; msg?: string };
   if (!response.ok) throw new Error(data.error_description || data.msg || 'Signup failed.');
   return data;
@@ -78,7 +79,7 @@ export default function OnboardingPage() {
     if (!integrationReady) return setStep(6);
     setBusy(true);
     try {
-      const result = await signup(account.email.trim().toLowerCase(), account.password, account.fullName.trim());
+      const result = await signup(account.email.trim().toLowerCase(), account.password, account.fullName.trim(), locale);
       if (!result.access_token) { setError(t.checkEmail); return; }
       await createOrganization(result.access_token, { ...organization, adminName: account.fullName, subscriptionPreference: plan, selectedModules });
       setStep(6);

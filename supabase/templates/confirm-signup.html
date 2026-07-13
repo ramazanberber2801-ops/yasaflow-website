@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirm your Yasaflow account</title>
+</head>
+<body style="margin:0;background:#f1f5f9;font-family:Inter,Arial,sans-serif;color:#0f172a;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f1f5f9;padding:32px 12px;">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;overflow:hidden;box-shadow:0 18px 48px rgba(15,23,42,.08);">
+        <tr><td style="background:#0f172a;padding:28px 36px;">
+          <table role="presentation" cellspacing="0" cellpadding="0"><tr>
+            <td style="vertical-align:middle;"><img src="https://yasaflow-website.vercel.app/branding/yasaflow-icon.png" width="42" height="42" alt="Yasaflow" style="display:block;border:0;border-radius:10px;"></td>
+            <td style="vertical-align:middle;padding-left:12px;font-size:22px;font-weight:700;letter-spacing:-.4px;color:#ffffff;">Yasaflow</td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:38px 36px 14px;">
+          {{ if eq .Data.locale "tr" }}
+            <p style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2185dc;">E-posta doğrulama</p>
+            <h1 style="margin:0;font-size:30px;line-height:1.2;letter-spacing:-.7px;">Yasaflow hesabınızı doğrulayın</h1>
+            <p style="margin:18px 0 0;font-size:16px;line-height:1.7;color:#475569;">Merhaba {{ .Data.full_name }}, kuruluş kurulumunu güvenli biçimde tamamlamak için e-posta adresinizi doğrulayın.</p>
+          {{ else if eq .Data.locale "nb" }}
+            <p style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2185dc;">Bekreft e-post</p>
+            <h1 style="margin:0;font-size:30px;line-height:1.2;letter-spacing:-.7px;">Bekreft Yasaflow-kontoen din</h1>
+            <p style="margin:18px 0 0;font-size:16px;line-height:1.7;color:#475569;">Hei {{ .Data.full_name }}, bekreft e-postadressen din for å fullføre den sikre opprettelsen av organisasjonen.</p>
+          {{ else }}
+            <p style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2185dc;">Email verification</p>
+            <h1 style="margin:0;font-size:30px;line-height:1.2;letter-spacing:-.7px;">Confirm your Yasaflow account</h1>
+            <p style="margin:18px 0 0;font-size:16px;line-height:1.7;color:#475569;">Hello {{ .Data.full_name }}, confirm your email address to securely complete your organization setup.</p>
+          {{ end }}
+        </td></tr>
+        <tr><td style="padding:18px 36px 8px;">
+          <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#2185dc;color:#ffffff;text-decoration:none;font-size:16px;font-weight:700;padding:15px 24px;border-radius:13px;">
+            {{ if eq .Data.locale "tr" }}E-postayı doğrula{{ else if eq .Data.locale "nb" }}Bekreft e-post{{ else }}Confirm email{{ end }}
+          </a>
+        </td></tr>
+        <tr><td style="padding:22px 36px 34px;">
+          <div style="border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;padding:18px;">
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#64748b;">
+              {{ if eq .Data.locale "tr" }}Bu hesabı siz oluşturmadıysanız bu e-postayı güvenle yok sayabilirsiniz.{{ else if eq .Data.locale "nb" }}Har du ikke opprettet denne kontoen, kan du trygt se bort fra e-posten.{{ else }}If you did not create this account, you can safely ignore this email.{{ end }}
+            </p>
+          </div>
+          <p style="margin:22px 0 0;font-size:12px;line-height:1.6;color:#94a3b8;">Yasaflow · One digital home for your organization<br>This is an automated security email. Please do not share the confirmation link.</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

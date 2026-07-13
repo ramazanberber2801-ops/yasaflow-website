@@ -12,6 +12,8 @@ All meaningful changes to the Yasaflow public website are recorded here.
 - Five-step multilingual self-service onboarding at `/get-started`.
 - Account, organization, subscription preference, module selection and review steps.
 - Safe non-persistent preview mode when Supabase is not configured.
+- Branded Yasaflow signup confirmation email template with logo and Norwegian, English and Turkish content.
+- Auth email setup guide covering redirect URLs, SMTP identity and production checks.
 
 ### Changed
 - Improved mobile navigation width, active-state visibility and header spacing.
