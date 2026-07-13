@@ -1,0 +1,5 @@
+Contact: mailto:hello@yasaflow.com
+Expires: 2027-07-13T23:59:59Z
+Preferred-Languages: en, nb, tr
+Canonical: https://yasaflow.com/.well-known/security.txt
+Policy: https://yasaflow.com/security
