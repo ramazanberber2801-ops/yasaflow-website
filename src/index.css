@@ -22,9 +22,7 @@ button, a, summary, input, select, textarea { -webkit-tap-highlight-color: trans
   border-radius: 0.75rem;
 }
 
-:where(a, button, summary) {
-  touch-action: manipulation;
-}
+:where(a, button, summary) { touch-action: manipulation; }
 
 .skip-link {
   position: fixed;
@@ -40,8 +38,65 @@ button, a, summary, input, select, textarea { -webkit-tap-highlight-color: trans
   transition: transform 160ms ease;
 }
 
-.skip-link:focus {
-  transform: translateY(0);
+.skip-link:focus { transform: translateY(0); }
+
+@media (max-width: 639px) {
+  .yasaflow-mobile-polish main,
+  .yasaflow-mobile-polish section,
+  .yasaflow-mobile-polish article,
+  .yasaflow-mobile-polish details,
+  .yasaflow-mobile-polish nav,
+  .yasaflow-mobile-polish footer { min-width: 0; }
+
+  .yasaflow-mobile-polish main section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .yasaflow-mobile-polish main h1 {
+    font-size: clamp(2.35rem, 12vw, 3.15rem);
+    line-height: 1.06;
+    letter-spacing: -0.045em;
+    overflow-wrap: anywhere;
+  }
+
+  .yasaflow-mobile-polish main h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .yasaflow-mobile-polish main p,
+  .yasaflow-mobile-polish main a,
+  .yasaflow-mobile-polish main span {
+    overflow-wrap: anywhere;
+  }
+
+  .yasaflow-mobile-polish main article,
+  .yasaflow-mobile-polish main details {
+    padding: 1.25rem;
+    border-radius: 1.5rem;
+  }
+
+  .yasaflow-mobile-polish main a.inline-flex {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .yasaflow-mobile-polish main input,
+  .yasaflow-mobile-polish main select,
+  .yasaflow-mobile-polish main textarea {
+    font-size: 16px;
+  }
+
+  .yasaflow-mobile-polish footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 374px) {
+  .yasaflow-mobile-polish main h1 { font-size: 2.2rem; }
+  .yasaflow-mobile-polish main section { padding-top: 3.75rem; padding-bottom: 3.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

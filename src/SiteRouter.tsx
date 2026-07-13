@@ -7,6 +7,7 @@ import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
 import { AccessibilityEnhancer } from './components/navigation/AccessibilityEnhancer';
 import { GlobalHeader } from './components/navigation/GlobalHeader';
+import { MobileLayoutEnhancer } from './components/navigation/MobileLayoutEnhancer';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
@@ -20,6 +21,7 @@ export default function SiteRouter() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
 
   const withGlobalHeader = (content: ReactNode) => <>
+    <MobileLayoutEnhancer />
     <GlobalHeader locale={locale} path={path} />
     <AccessibilityEnhancer locale={locale} />
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
@@ -44,6 +46,7 @@ export default function SiteRouter() {
   if (path !== '/') return withGlobalHeader(<PublicRouter />);
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
+    <MobileLayoutEnhancer />
     <AccessibilityEnhancer locale={locale} showSkipLink />
     <PublicRouter />
     <AudienceCopyEnhancer locale={locale} />
