@@ -1,5 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
-import ConnectedOnboardingPage from './ConnectedOnboardingPage';
+import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PublicRouter from './PublicRouter';
@@ -28,7 +28,7 @@ export default function SiteRouter() {
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
   </>;
 
-  if (path === '/get-started' || path === '/register') return <ConnectedOnboardingPage />;
+  if (path === '/get-started' || path === '/register') return <OnboardingPage />;
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
   if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
