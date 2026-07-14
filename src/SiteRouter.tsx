@@ -1,4 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
+import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
@@ -29,6 +30,9 @@ export default function SiteRouter() {
   </>;
 
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
+  if (path === '/privacy') return <LegalPage type="privacy" locale={locale} />;
+  if (path === '/terms') return <LegalPage type="terms" locale={locale} />;
+  if (path === '/cookies') return <LegalPage type="cookies" locale={locale} />;
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
   if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
