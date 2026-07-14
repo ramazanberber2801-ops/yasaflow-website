@@ -13,18 +13,17 @@ function enhancePasswordField(root: ParentNode) {
   const input = root.querySelector<HTMLInputElement>('input[type="password"], input[data-password-field="true"]');
   if (!input || input.dataset.passwordEnhanced === 'true') return;
 
+  const label = input.closest('label');
+  if (!label) return;
+
   input.dataset.passwordEnhanced = 'true';
   input.dataset.passwordField = 'true';
   input.classList.add('pr-14');
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'relative';
-  input.parentNode?.insertBefore(wrapper, input);
-  wrapper.appendChild(input);
+  label.classList.add('relative');
 
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'absolute right-3 top-1/2 mt-1 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#2185DC]/20';
+  button.className = 'absolute bottom-1 right-3 flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-[#2185DC]/20';
   button.setAttribute('aria-label', 'Vis passord');
   button.setAttribute('aria-pressed', 'false');
   button.innerHTML = eyeOpen;
@@ -34,8 +33,9 @@ function enhancePasswordField(root: ParentNode) {
     button.setAttribute('aria-label', showing ? 'Vis passord' : 'Skjul passord');
     button.setAttribute('aria-pressed', String(!showing));
     button.innerHTML = showing ? eyeOpen : eyeClosed;
+    input.focus({ preventScroll: true });
   });
-  wrapper.appendChild(button);
+  label.appendChild(button);
 }
 
 function enhanceConfirmationMessage(root: ParentNode) {
