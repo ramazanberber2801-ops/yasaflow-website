@@ -9,7 +9,6 @@ import TrustPage from './TrustPages';
 import { AccessibilityEnhancer } from './components/navigation/AccessibilityEnhancer';
 import { GlobalHeader } from './components/navigation/GlobalHeader';
 import { MobileLayoutEnhancer } from './components/navigation/MobileLayoutEnhancer';
-import { OnboardingUxEnhancer } from './components/onboarding/OnboardingUxEnhancer';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
@@ -29,7 +28,7 @@ export default function SiteRouter() {
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
   </>;
 
-  if (path === '/get-started' || path === '/register') return <><OnboardingUxEnhancer /><OnboardingPage /></>;
+  if (path === '/get-started' || path === '/register') return <OnboardingPage />;
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
   if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
