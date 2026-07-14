@@ -11,4 +11,5 @@
   <url><loc>https://yasaflow.com/integrations</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://yasaflow.com/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://yasaflow.com/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://yasaflow.com/cookies</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
