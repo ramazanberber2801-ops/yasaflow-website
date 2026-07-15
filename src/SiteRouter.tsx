@@ -13,6 +13,7 @@ import { MobileLayoutEnhancer } from './components/navigation/MobileLayoutEnhanc
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
+import { PublicUiPolish } from './components/product/PublicUiPolish';
 import { SiteNavigationEnhancer } from './components/product/SiteNavigationEnhancer';
 import { useI18n } from './i18n';
 
@@ -24,6 +25,7 @@ export default function SiteRouter() {
 
   const withGlobalHeader = (content: ReactNode) => <>
     <MobileLayoutEnhancer />
+    <PublicUiPolish />
     <GlobalHeader locale={locale} path={path} />
     <AccessibilityEnhancer locale={locale} />
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
@@ -53,6 +55,7 @@ export default function SiteRouter() {
 
   return <div lang={locale === 'nb' ? 'nb-NO' : locale} onClickCapture={handleProductNavigation}>
     <MobileLayoutEnhancer />
+    <PublicUiPolish />
     <AccessibilityEnhancer locale={locale} showSkipLink />
     <PublicRouter />
     <AudienceCopyEnhancer locale={locale} />
