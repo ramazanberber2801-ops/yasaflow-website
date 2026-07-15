@@ -7,7 +7,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
     description: {
       en: 'Publish updates and important information to the organization.',
       nb: 'Publiser oppdateringer og viktig informasjon til organisasjonen.',
-      tr: 'Kuruluşa güncellemeler ve önemli bilgiler yayınlayın.',
+      tr: 'Kuruma güncellemeler ve önemli bilgiler yayınlayın.',
     },
     category: 'core', icon: 'newspaper', sortOrder: 10, included: true, premium: false,
     monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
@@ -29,7 +29,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
     description: {
       en: 'Manage the people who belong to the organization.',
       nb: 'Administrer personene som tilhører organisasjonen.',
-      tr: 'Kuruluşa bağlı kişileri yönetin.',
+      tr: 'Kuruma bağlı kişileri yönetin.',
     },
     category: 'core', icon: 'users', sortOrder: 30, included: true, premium: false,
     monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
@@ -51,7 +51,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
     description: {
       en: 'Configure the organization and its digital experience.',
       nb: 'Konfigurer organisasjonen og den digitale opplevelsen.',
-      tr: 'Kuruluşu ve dijital deneyimini yapılandırın.',
+      tr: 'Kurumu ve dijital deneyimini yapılandırın.',
     },
     category: 'core', icon: 'settings', sortOrder: 50, included: true, premium: false,
     monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
@@ -69,11 +69,11 @@ export const moduleCatalog: readonly YasaflowModule[] = [
   },
   {
     id: 'donations',
-    name: { en: 'Donations', nb: 'Donasjoner', tr: 'Bağışlar' },
+    name: { en: 'Donations & Payments', nb: 'Donasjoner og betalinger', tr: 'Bağış ve Ödemeler' },
     description: {
-      en: 'Make it easier for supporters to contribute digitally.',
-      nb: 'Gjør det enklere for støttespillere å bidra digitalt.',
-      tr: 'Destekçilerin dijital olarak katkıda bulunmasını kolaylaştırın.',
+      en: 'Accept easy digital donations and payments through cards, Stripe and supported local payment methods.',
+      nb: 'Gjør det enkelt å ta imot donasjoner og betalinger med Vipps, kort og støttede betalingsløsninger.',
+      tr: 'Kart, Stripe, mobil ödeme ve desteklenen yerel ödeme yöntemleriyle kolayca bağış ve ödeme alın.',
     },
     category: 'finance', icon: 'circle-dollar-sign', sortOrder: 70, included: false, premium: false,
     monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
