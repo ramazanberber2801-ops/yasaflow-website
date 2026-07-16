@@ -1,4 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
+import CustomerPortal from './CustomerPortal';
 import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
@@ -31,6 +32,7 @@ export default function SiteRouter() {
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
   </>;
 
+  if (path === '/login' || path === '/dashboard' || path === '/portal') return <CustomerPortal />;
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
   if (path === '/privacy') return <LegalPage type="privacy" locale={locale} />;
   if (path === '/terms') return <LegalPage type="terms" locale={locale} />;
@@ -43,9 +45,15 @@ export default function SiteRouter() {
   if (path === '/integrations') return withGlobalHeader(<TrustPage path="/integrations" locale={locale} />);
 
   function handleProductNavigation(event: MouseEvent<HTMLDivElement>) {
-    if (path !== '/') return;
     const anchor = (event.target as HTMLElement).closest('a');
-    const label = anchor?.textContent?.trim();
+    if (!anchor) return;
+    const label = anchor.textContent?.trim();
+    if (label && ['Logg inn','Log in','Giriş yap'].includes(label)) {
+      event.preventDefault();
+      window.location.assign('/login');
+      return;
+    }
+    if (path !== '/') return;
     if (!label || !productLabels.has(label)) return;
     event.preventDefault();
     window.location.assign('/modules');
