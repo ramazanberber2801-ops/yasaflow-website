@@ -65,7 +65,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
       tr: 'Önemli bildirimleri doğrudan kullanıcılara gönderin.',
     },
     category: 'communication', icon: 'bell', sortOrder: 60, included: false, premium: false,
-    monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
+    monthlyPriceNok: 39, status: 'active', visibleOnWebsite: true,
   },
   {
     id: 'donations',
@@ -76,7 +76,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
       tr: 'Kart, Stripe, mobil ödeme ve desteklenen yerel ödeme yöntemleriyle kolayca bağış ve ödeme alın.',
     },
     category: 'finance', icon: 'circle-dollar-sign', sortOrder: 70, included: false, premium: false,
-    monthlyPriceNok: null, status: 'active', visibleOnWebsite: true,
+    monthlyPriceNok: 39, status: 'active', visibleOnWebsite: true,
   },
   {
     id: 'chat',
@@ -87,7 +87,7 @@ export const moduleCatalog: readonly YasaflowModule[] = [
       tr: 'Ekipler ve üye grupları için düzenli iletişim.',
     },
     category: 'communication', icon: 'message-circle', sortOrder: 80, included: false, premium: false,
-    monthlyPriceNok: null, status: 'development', visibleOnWebsite: false,
+    monthlyPriceNok: 49, status: 'development', visibleOnWebsite: false,
   },
 ];
 
@@ -105,5 +105,5 @@ export function getIncludedModules(modules: readonly YasaflowModule[] = moduleCa
 }
 
 export function getSelectablePaidModules(modules: readonly YasaflowModule[] = moduleCatalog): YasaflowModule[] {
-  return getPublicModules(modules).filter((module) => !module.included);
+  return getPublicModules(modules).filter((module) => !module.included && module.monthlyPriceNok !== null);
 }
