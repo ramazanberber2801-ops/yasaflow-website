@@ -14,6 +14,7 @@ import { GlobalHeader } from './components/navigation/GlobalHeader';
 import { MobileLayoutEnhancer } from './components/navigation/MobileLayoutEnhancer';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
 import { HeaderNavigationEnhancer } from './components/product/HeaderNavigationEnhancer';
+import { PricingSection } from './components/product/PricingSection';
 import { ProductPreviewEnhancer } from './components/product/ProductPreviewEnhancer';
 import { PublicUiPolish } from './components/product/PublicUiPolish';
 import { SiteNavigationEnhancer } from './components/product/SiteNavigationEnhancer';
@@ -71,6 +72,7 @@ export default function SiteRouter() {
     <AudienceCopyEnhancer locale={locale} />
     <HeaderNavigationEnhancer locale={locale} />
     <ProductPreviewEnhancer locale={locale} />
+    <PricingSection locale={locale} />
     <SiteNavigationEnhancer locale={locale} />
   </div>;
 }
