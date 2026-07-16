@@ -1,13 +1,13 @@
 import { useLayoutEffect } from 'react';
 import type { Locale } from '../../i18n';
 
-const copy: Record<Locale, { resources: string; loginNotice: string; startLabels: string[] }> = {
-  en: { resources: 'Resources', loginNotice: 'Public login is not available yet. Contact Yasaflow for product access.', startLabels: ['Get Started', 'Create Organization', 'Ready to get started?'] },
-  nb: { resources: 'Ressurser', loginNotice: 'Offentlig innlogging er ikke tilgjengelig ennå. Kontakt Yasaflow for produkttilgang.', startLabels: ['Kom i gang', 'Opprett organisasjon', 'Klar til å komme i gang?'] },
-  tr: { resources: 'Kaynaklar', loginNotice: 'Herkese açık giriş henüz kullanılamıyor. Ürün erişimi için Yasaflow ile iletişime geçin.', startLabels: ['Başlayın', 'Kuruluş oluştur', 'Başlamaya hazır mısınız?'] },
+const copy: Record<Locale, { loginNotice: string; startLabels: string[] }> = {
+  en: { loginNotice: 'Open the Yasaflow customer login.', startLabels: ['Get Started', 'Create Organization', 'Ready to get started?'] },
+  nb: { loginNotice: 'Åpne innloggingen til Yasaflow.', startLabels: ['Kom i gang', 'Opprett organisasjon', 'Klar til å komme i gang?'] },
+  tr: { loginNotice: 'Yasaflow müşteri girişini açın.', startLabels: ['Başlayın', 'Kurum oluştur', 'Başlamaya hazır mısınız?'] },
 };
 
-const destinations = ['/modules', '#solutions', '/resources', '/about', '/contact'];
+const destinations = ['/modules', '#solutions', '/pricing', '/about', '/contact'];
 
 export function HeaderNavigationEnhancer({ locale }: { locale: Locale }) {
   useLayoutEffect(() => {
@@ -20,14 +20,13 @@ export function HeaderNavigationEnhancer({ locale }: { locale: Locale }) {
       const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>('a')).filter((link) => !link.closest('[data-language-selector]'));
       links.slice(0, 5).forEach((link, index) => {
         link.href = destinations[index];
-        if (index === 2) link.textContent = copy[locale].resources;
       });
     });
 
     const anchors = Array.from(document.querySelectorAll<HTMLAnchorElement>('a'));
     const loginLink = anchors.find((link) => ['Log in', 'Logg inn', 'Giriş yap'].includes(link.textContent?.trim() ?? ''));
     if (loginLink) {
-      loginLink.href = '/contact';
+      loginLink.href = '/login';
       loginLink.title = copy[locale].loginNotice;
       loginLink.setAttribute('aria-label', `${loginLink.textContent?.trim()}. ${copy[locale].loginNotice}`);
     }
