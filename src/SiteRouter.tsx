@@ -4,6 +4,7 @@ import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
+import PricingPage from './PricingPage';
 import PublicRouter from './PublicRouter';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
@@ -34,6 +35,7 @@ export default function SiteRouter() {
 
   if (path === '/login' || path === '/dashboard' || path === '/portal') return <CustomerPortal />;
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
+  if (path === '/pricing') return <PricingPage />;
   if (path === '/privacy') return <LegalPage type="privacy" locale={locale} />;
   if (path === '/terms') return <LegalPage type="terms" locale={locale} />;
   if (path === '/cookies') return <LegalPage type="cookies" locale={locale} />;
