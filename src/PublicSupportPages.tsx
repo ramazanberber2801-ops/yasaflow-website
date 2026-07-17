@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { CheckCircle2, Lightbulb, Mail, MessageSquareMore } from 'lucide-react';
-import { LanguageSelector, type Locale } from './i18n';
+import type { Locale } from './i18n';
 import { supabase } from './lib/supabase';
 
 type PageType = 'about' | 'contact' | 'feedback';
@@ -66,8 +66,7 @@ export default function PublicSupportPage({ type, locale }: { type: PageType; lo
   }
 
   return <div className="min-h-screen bg-slate-50 text-slate-950">
-    <header className="border-b border-slate-200 bg-white"><div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-5"><a href="/" className="font-semibold text-[#2185DC]">Yasaflow</a><LanguageSelector /></div></header>
-    <main className="mx-auto max-w-3xl px-5 py-16 sm:py-24">
+    <main id="main-content" className="mx-auto max-w-3xl px-5 py-16 sm:py-24">
       <a href="/" className="text-sm font-semibold text-[#2185DC]">← {t.back}</a>
       {type === 'about' && <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-10"><Lightbulb className="text-[#2185DC]" /><h1 className="mt-5 text-4xl font-semibold tracking-[-.04em]">{t.aboutTitle}</h1><p className="mt-5 text-xl leading-8 text-slate-600">{t.aboutIntro}</p><div className="mt-8 space-y-5 text-base leading-8 text-slate-700">{t.aboutBody.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>}
       {type === 'contact' && <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm sm:p-10"><Mail className="text-[#2185DC]" /><h1 className="mt-5 text-4xl font-semibold tracking-[-.04em]">{t.contactTitle}</h1><p className="mt-5 text-lg leading-8 text-slate-600">{t.contactIntro}</p><a className="mt-8 inline-flex rounded-2xl bg-[#2185DC] px-5 py-3 font-semibold text-white" href="mailto:hello@yasaflow.com">hello@yasaflow.com</a><p className="mt-5 text-sm text-slate-500">{t.response}</p></section>}
