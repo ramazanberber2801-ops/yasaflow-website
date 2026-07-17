@@ -4,73 +4,67 @@ import type { Locale } from './i18n';
 const SITE_URL = 'https://yasaflow.com';
 const SOCIAL_IMAGE = `${SITE_URL}/branding/yasaflow-icon.png`;
 
-type RouteKey = 'home' | 'about' | 'contact' | 'privacy' | 'terms' | 'faq' | 'security' | 'roadmap' | 'integrations' | 'notFound';
+type RouteKey = 'home' | 'about' | 'contact' | 'pricing' | 'privacy' | 'terms' | 'refund' | 'faq' | 'security' | 'roadmap' | 'integrations' | 'notFound';
 type Metadata = { title: string; description: string };
 
-const metadata: Record<Locale, Record<RouteKey, Metadata>> = {
+const shared = {
   en: {
-    home: { title: 'Yasaflow — One digital home for your organization', description: 'Yasaflow connects members, activities, communication, donations and administration in one calm, modular platform.' },
-    about: { title: 'About Yasaflow — Built for communities', description: 'Learn why Yasaflow is building a calm, modular and trustworthy digital foundation for membership-based organizations.' },
-    contact: { title: 'Contact Yasaflow — Book a demo', description: 'Contact Yasaflow to discuss your organization, explore relevant modules and book a product demo.' },
-    privacy: { title: 'Privacy — Yasaflow', description: 'Read the current privacy information for the Yasaflow public website and how direct email enquiries are handled.' },
-    terms: { title: 'Website Terms — Yasaflow', description: 'Read the current terms for using the Yasaflow public website and its informational product content.' },
-    faq: { title: 'Frequently Asked Questions — Yasaflow', description: 'Find clear answers about Yasaflow, modules, administration, mobile access, languages, privacy and the platform’s product direction.' },
-    security: { title: 'Security and Trust — Yasaflow', description: 'Read Yasaflow’s transparent security direction, including access control, data protection, encryption, backups, logging and incident readiness.' },
-    roadmap: { title: 'Product Roadmap — Yasaflow', description: 'Explore Yasaflow’s transparent product direction with clear available, in-development, planned and research statuses.' },
-    integrations: { title: 'Integrations — Yasaflow', description: 'See Yasaflow’s integration direction and honest statuses for email, push notifications, payments, calendars, accounting and APIs.' },
-    notFound: { title: 'Page not found — Yasaflow', description: 'The requested Yasaflow page could not be found.' },
+    home: ['Yasaflow — One digital home for your organization','Yasaflow connects members, activities, communication, donations and administration in one calm, modular platform.'],
+    about: ['About Yasaflow — Built for communities','Learn why Yasaflow is building a calm, modular and trustworthy digital foundation for membership-based organizations.'],
+    contact: ['Contact Yasaflow — Book a demo','Contact Yasaflow to discuss your organization, explore relevant modules and book a product demo.'],
+    pricing: ['Yasaflow Pricing — 7-day free trial','Try Yasaflow free for 7 days. The core platform starts from NOK 349 per month, with optional paid add-on modules.'],
+    privacy: ['Privacy Policy — Yasaflow','Read how Yasaflow processes personal data when you visit the website, create an account or use the platform.'],
+    terms: ['Terms and Conditions — Yasaflow','Read the terms for Yasaflow’s trial, pricing, automatic renewal, cancellation and platform services.'],
+    refund: ['Refund and Cancellation Policy — Yasaflow','Read Yasaflow’s refund and cancellation policy for trials, subscriptions and optional add-on modules.'],
+    faq: ['Frequently Asked Questions — Yasaflow','Find clear answers about Yasaflow, modules, administration, mobile access, languages and privacy.'],
+    security: ['Security and Trust — Yasaflow','Read Yasaflow’s security direction, including access control, data protection, backups and incident readiness.'],
+    roadmap: ['Product Roadmap — Yasaflow','Explore Yasaflow’s product direction and development statuses.'],
+    integrations: ['Integrations — Yasaflow','See Yasaflow’s integration direction for email, notifications, payments, calendars and APIs.'],
+    notFound: ['Page not found — Yasaflow','The requested Yasaflow page could not be found.'],
   },
   nb: {
-    home: { title: 'Yasaflow — Ett digitalt hjem for organisasjonen', description: 'Yasaflow samler medlemmer, aktiviteter, kommunikasjon, donasjoner og administrasjon i én rolig og modulær plattform.' },
-    about: { title: 'Om Yasaflow — Bygget for fellesskap', description: 'Les hvorfor Yasaflow bygger et rolig, modulært og tillitsfullt digitalt grunnlag for medlemsbaserte organisasjoner.' },
-    contact: { title: 'Kontakt Yasaflow — Bestill demo', description: 'Kontakt Yasaflow for å diskutere organisasjonen, utforske aktuelle moduler og bestille en produktdemo.' },
-    privacy: { title: 'Personvern — Yasaflow', description: 'Les gjeldende personverninformasjon for Yasaflows offentlige nettside og hvordan e-posthenvendelser behandles.' },
-    terms: { title: 'Vilkår for nettsiden — Yasaflow', description: 'Les gjeldende vilkår for bruk av Yasaflows offentlige nettside og informasjonsinnhold.' },
-    faq: { title: 'Ofte stilte spørsmål — Yasaflow', description: 'Finn tydelige svar om Yasaflow, moduler, administrasjon, mobiltilgang, språk, personvern og produktretningen.' },
-    security: { title: 'Sikkerhet og tillit — Yasaflow', description: 'Les Yasaflows åpne sikkerhetsretning for tilgang, databeskyttelse, kryptering, sikkerhetskopi, logging og hendelseshåndtering.' },
-    roadmap: { title: 'Produktveikart — Yasaflow', description: 'Utforsk Yasaflows tydelige produktretning med statusene tilgjengelig, under utvikling, planlagt og utforskes.' },
-    integrations: { title: 'Integrasjoner — Yasaflow', description: 'Se Yasaflows integrasjonsretning og ærlige statuser for e-post, pushvarsler, betaling, kalender, regnskap og API.' },
-    notFound: { title: 'Siden ble ikke funnet — Yasaflow', description: 'Den forespurte Yasaflow-siden finnes ikke.' },
+    home: ['Yasaflow — Ett digitalt hjem for organisasjonen','Yasaflow samler medlemmer, aktiviteter, kommunikasjon, donasjoner og administrasjon i én rolig og modulær plattform.'],
+    about: ['Om Yasaflow — Bygget for fellesskap','Les hvorfor Yasaflow bygger et modulært og tillitsfullt digitalt grunnlag for organisasjoner.'],
+    contact: ['Kontakt Yasaflow — Bestill demo','Kontakt Yasaflow for å diskutere organisasjonen og bestille en produktdemo.'],
+    pricing: ['Yasaflow priser — 7 dager gratis','Prøv Yasaflow gratis i 7 dager. Grunnplattformen koster fra 349 kr per måned, med valgfrie tilleggsmoduler.'],
+    privacy: ['Personvernerklæring — Yasaflow','Les hvordan Yasaflow behandler personopplysninger på nettsiden og i plattformen.'],
+    terms: ['Vilkår for bruk — Yasaflow','Les vilkårene for prøveperiode, pris, automatisk fornyelse, oppsigelse og plattformtjenester.'],
+    refund: ['Refusjons- og kanselleringspolicy — Yasaflow','Les Yasaflows policy for prøveperiode, oppsigelse, fornyelse og refusjon.'],
+    faq: ['Ofte stilte spørsmål — Yasaflow','Finn tydelige svar om Yasaflow, moduler, administrasjon, språk og personvern.'],
+    security: ['Sikkerhet og tillit — Yasaflow','Les Yasaflows retning for tilgang, databeskyttelse, sikkerhetskopi og hendelseshåndtering.'],
+    roadmap: ['Produktveikart — Yasaflow','Utforsk Yasaflows produktretning og utviklingsstatuser.'],
+    integrations: ['Integrasjoner — Yasaflow','Se Yasaflows integrasjonsretning for e-post, varsler, betaling, kalender og API.'],
+    notFound: ['Siden ble ikke funnet — Yasaflow','Den forespurte Yasaflow-siden finnes ikke.'],
   },
   tr: {
-    home: { title: 'Yasaflow — Kuruluşunuz için tek dijital merkez', description: 'Yasaflow üyeleri, etkinlikleri, iletişimi, bağışları ve yönetimi sakin ve modüler bir platformda birleştirir.' },
-    about: { title: 'Yasaflow Hakkında — Topluluklar için geliştirildi', description: 'Yasaflow’un üyelik temelli kuruluşlar için sakin, modüler ve güvenilir bir dijital temel oluşturma nedenini öğrenin.' },
-    contact: { title: 'Yasaflow ile İletişim — Demo isteyin', description: 'Kuruluşunuzu görüşmek, ilgili modülleri keşfetmek ve ürün demosu istemek için Yasaflow ile iletişime geçin.' },
-    privacy: { title: 'Gizlilik — Yasaflow', description: 'Yasaflow halka açık web sitesinin mevcut gizlilik bilgilerini ve doğrudan e-posta taleplerinin nasıl işlendiğini okuyun.' },
-    terms: { title: 'Web Sitesi Koşulları — Yasaflow', description: 'Yasaflow halka açık web sitesinin ve bilgilendirme içeriğinin kullanım koşullarını okuyun.' },
-    faq: { title: 'Sık Sorulan Sorular — Yasaflow', description: 'Yasaflow, modüller, yönetim, mobil erişim, diller, gizlilik ve ürün yönü hakkında net cevaplar bulun.' },
-    security: { title: 'Güvenlik ve Güven — Yasaflow', description: 'Erişim kontrolü, veri koruma, şifreleme, yedekleme, kayıt ve olay hazırlığı dahil Yasaflow’un şeffaf güvenlik yönünü okuyun.' },
-    roadmap: { title: 'Ürün Yol Haritası — Yasaflow', description: 'Mevcut, geliştirilmekte, planlandı ve araştırma durumlarıyla Yasaflow’un şeffaf ürün yönünü keşfedin.' },
-    integrations: { title: 'Entegrasyonlar — Yasaflow', description: 'E-posta, anlık bildirimler, ödemeler, takvimler, muhasebe ve API için Yasaflow’un entegrasyon yönünü ve dürüst durumlarını görün.' },
-    notFound: { title: 'Sayfa bulunamadı — Yasaflow', description: 'İstenen Yasaflow sayfası bulunamadı.' },
+    home: ['Yasaflow — Kuruluşunuz için tek dijital merkez','Yasaflow üyeleri, etkinlikleri, iletişimi, bağışları ve yönetimi modüler bir platformda birleştirir.'],
+    about: ['Yasaflow Hakkında','Yasaflow’un kuruluşlar için güvenilir dijital temelini keşfedin.'],
+    contact: ['Yasaflow ile İletişim','Demo istemek için Yasaflow ile iletişime geçin.'],
+    pricing: ['Yasaflow Fiyatları — 7 gün ücretsiz','Yasaflow’u 7 gün ücretsiz deneyin. Temel platform aylık 349 NOK’dan başlar ve ek modüller seçilebilir.'],
+    privacy: ['Gizlilik Politikası — Yasaflow','Yasaflow’un kişisel verileri nasıl işlediğini okuyun.'],
+    terms: ['Kullanım Koşulları — Yasaflow','Deneme, fiyat, otomatik yenileme ve iptal koşullarını okuyun.'],
+    refund: ['İade ve İptal Politikası — Yasaflow','Deneme, abonelik ve ek modüller için iade ve iptal politikasını okuyun.'],
+    faq: ['Sık Sorulan Sorular — Yasaflow','Yasaflow hakkında sık sorulan soruların yanıtlarını bulun.'],
+    security: ['Güvenlik ve Güven — Yasaflow','Yasaflow güvenlik yaklaşımını okuyun.'],
+    roadmap: ['Ürün Yol Haritası — Yasaflow','Yasaflow ürün yönünü keşfedin.'],
+    integrations: ['Entegrasyonlar — Yasaflow','Yasaflow entegrasyon yönünü görün.'],
+    notFound: ['Sayfa bulunamadı — Yasaflow','İstenen Yasaflow sayfası bulunamadı.'],
   },
-};
+} as const;
 
-const routeKey = (path: string): RouteKey => {
-  const routes: Record<string, RouteKey> = {
-    '/': 'home', '/about': 'about', '/contact': 'contact', '/privacy': 'privacy', '/terms': 'terms',
-    '/faq': 'faq', '/security': 'security', '/roadmap': 'roadmap', '/integrations': 'integrations',
-  };
-  return routes[path] ?? 'notFound';
-};
+const metadata = Object.fromEntries(Object.entries(shared).map(([locale, pages]) => [locale, Object.fromEntries(Object.entries(pages).map(([key, [title, description]]) => [key, { title, description }]))])) as Record<Locale, Record<RouteKey, Metadata>>;
 
-function setMeta(selector: string, attributes: Record<string, string>, content: string) {
+const routeKey = (path: string): RouteKey => ({ '/':'home','/about':'about','/contact':'contact','/pricing':'pricing','/privacy':'privacy','/terms':'terms','/refund':'refund','/faq':'faq','/security':'security','/roadmap':'roadmap','/integrations':'integrations' }[path] as RouteKey | undefined) ?? 'notFound';
+
+function setMeta(selector: string, attributes: Record<string, string>, value: string) {
   let element = document.head.querySelector<HTMLMetaElement>(selector);
-  if (!element) {
-    element = document.createElement('meta');
-    Object.entries(attributes).forEach(([key, value]) => element?.setAttribute(key, value));
-    document.head.appendChild(element);
-  }
-  element.setAttribute('content', content);
+  if (!element) { element = document.createElement('meta'); Object.entries(attributes).forEach(([key, item]) => element?.setAttribute(key, item)); document.head.appendChild(element); }
+  element.setAttribute('content', value);
 }
 
 function setCanonical(url: string) {
   let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  if (!canonical) {
-    canonical = document.createElement('link');
-    canonical.rel = 'canonical';
-    document.head.appendChild(canonical);
-  }
+  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
   canonical.href = url;
 }
 
@@ -79,8 +73,6 @@ export function usePageMetadata(path: string, locale: Locale) {
     const key = routeKey(path);
     const page = metadata[locale][key];
     const canonicalUrl = `${SITE_URL}${key === 'notFound' ? path : path === '/' ? '' : path}`;
-    const ogLocale = locale === 'nb' ? 'nb_NO' : locale === 'tr' ? 'tr_TR' : 'en_US';
-
     document.title = page.title;
     document.documentElement.lang = locale === 'nb' ? 'nb-NO' : locale;
     setCanonical(canonicalUrl);
@@ -92,20 +84,9 @@ export function usePageMetadata(path: string, locale: Locale) {
     setMeta('meta[property="og:description"]', { property: 'og:description' }, page.description);
     setMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl);
     setMeta('meta[property="og:image"]', { property: 'og:image' }, SOCIAL_IMAGE);
-    setMeta('meta[property="og:image:alt"]', { property: 'og:image:alt' }, 'Yasaflow logo');
-    setMeta('meta[property="og:locale"]', { property: 'og:locale' }, ogLocale);
     setMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
     setMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, page.title);
     setMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, page.description);
     setMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, SOCIAL_IMAGE);
-
-    let schema = document.head.querySelector<HTMLScriptElement>('script[data-yasaflow-schema]');
-    if (!schema) {
-      schema = document.createElement('script');
-      schema.type = 'application/ld+json';
-      schema.dataset.yasaflowSchema = 'true';
-      document.head.appendChild(schema);
-    }
-    schema.text = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Yasaflow', url: SITE_URL, logo: SOCIAL_IMAGE, email: 'hello@yasaflow.com', description: metadata[locale].home.description });
   }, [locale, path]);
 }
