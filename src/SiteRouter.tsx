@@ -1,4 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
+import CheckoutSuccessPage from './CheckoutSuccessPage';
 import CustomerPortal from './CustomerPortal';
 import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
@@ -36,6 +37,7 @@ export default function SiteRouter() {
 
   if (path === '/login' || path === '/dashboard' || path === '/portal') return <CustomerPortal />;
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
+  if (path === '/checkout/success') return <CheckoutSuccessPage />;
   if (path === '/pricing') return <PricingPage />;
   if (path === '/privacy') return <LegalPage type="privacy" locale={locale} />;
   if (path === '/terms') return <LegalPage type="terms" locale={locale} />;
