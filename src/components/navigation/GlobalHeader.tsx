@@ -13,11 +13,11 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
   const links = [
     [t.products, '/modules'],
     [t.solutions, '/#solutions'],
-    [t.pricing, '/pricing'],
     [t.resources, '/resources'],
     [t.about, '/about'],
     [t.contact, '/contact'],
   ] as const;
+  const pricingActive = path === '/pricing';
 
   return <>
     <a className="skip-link" href="#main-content">{t.skip}</a>
@@ -32,6 +32,7 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
           })}
         </nav>
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <a href="/pricing" aria-current={pricingActive ? 'page' : undefined} className={`inline-flex min-h-10 items-center rounded-xl px-3 text-xs font-semibold sm:min-h-11 sm:px-4 sm:text-sm ${pricingActive ? 'bg-[#176db6] text-white' : 'bg-[#2185DC] text-white hover:bg-[#176db6]'}`}>{t.pricing}</a>
           <LanguageSelector compact />
           <details className="relative lg:hidden">
             <summary aria-label={t.menu} className="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-xl border border-slate-200 bg-white text-slate-700"><Menu aria-hidden="true" size={20} /></summary>
