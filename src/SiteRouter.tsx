@@ -6,10 +6,12 @@ import ModuleLibrary from './ModuleLibrary';
 import { ModuleMetadata } from './ModuleMetadata';
 import PricingPage from './PricingPage';
 import PublicRouter from './PublicRouter';
+import PublicSupportPage from './PublicSupportPages';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
 import { AccessibilityEnhancer } from './components/navigation/AccessibilityEnhancer';
+import { FeedbackLauncher } from './components/navigation/FeedbackLauncher';
 import { GlobalHeader } from './components/navigation/GlobalHeader';
 import { MobileLayoutEnhancer } from './components/navigation/MobileLayoutEnhancer';
 import { AudienceCopyEnhancer } from './components/product/AudienceCopyEnhancer';
@@ -31,6 +33,7 @@ export default function SiteRouter() {
     <PublicUiPolish />
     <GlobalHeader locale={locale} path={path} />
     <AccessibilityEnhancer locale={locale} />
+    <FeedbackLauncher locale={locale} />
     <div className="[&>div>header]:hidden [&>header]:hidden">{content}</div>
   </>;
 
@@ -41,6 +44,9 @@ export default function SiteRouter() {
   if (path === '/terms') return <LegalPage type="terms" locale={locale} />;
   if (path === '/refund') return <LegalPage type="refund" locale={locale} />;
   if (path === '/cookies') return <LegalPage type="cookies" locale={locale} />;
+  if (path === '/about') return <PublicSupportPage type="about" locale={locale} />;
+  if (path === '/contact') return <PublicSupportPage type="contact" locale={locale} />;
+  if (path === '/feedback') return <PublicSupportPage type="feedback" locale={locale} />;
   if (path === '/modules') return withGlobalHeader(<><ModuleMetadata locale={locale} /><ModuleLibrary /></>);
   if (path === '/resources') return withGlobalHeader(<><ResourcesMetadata locale={locale} /><ResourcesPage locale={locale} /></>);
   if (path === '/faq') return withGlobalHeader(<TrustPage path="/faq" locale={locale} />);
@@ -75,5 +81,6 @@ export default function SiteRouter() {
     <ProductPreviewEnhancer locale={locale} />
     <PricingSection locale={locale} />
     <SiteNavigationEnhancer locale={locale} />
+    <FeedbackLauncher locale={locale} />
   </div>;
 }
