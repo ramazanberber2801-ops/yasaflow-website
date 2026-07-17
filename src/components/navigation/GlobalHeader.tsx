@@ -17,6 +17,7 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
     [t.about, '/about'],
     [t.contact, '/contact'],
   ] as const;
+  const mobileLinks = [[t.pricing, '/pricing'], ...links] as const;
   const pricingActive = path === '/pricing';
 
   return <>
@@ -32,12 +33,12 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
           })}
         </nav>
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-          <a href="/pricing" aria-current={pricingActive ? 'page' : undefined} className={`inline-flex min-h-10 items-center rounded-xl px-3 text-xs font-semibold sm:min-h-11 sm:px-4 sm:text-sm ${pricingActive ? 'bg-[#176db6] text-white' : 'bg-[#2185DC] text-white hover:bg-[#176db6]'}`}>{t.pricing}</a>
+          <a href="/pricing" aria-current={pricingActive ? 'page' : undefined} className={`hidden min-h-11 items-center rounded-xl px-4 text-sm font-semibold lg:inline-flex ${pricingActive ? 'bg-[#176db6] text-white' : 'bg-[#2185DC] text-white hover:bg-[#176db6]'}`}>{t.pricing}</a>
           <LanguageSelector compact />
           <details className="relative lg:hidden">
             <summary aria-label={t.menu} className="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-xl border border-slate-200 bg-white text-slate-700"><Menu aria-hidden="true" size={20} /></summary>
             <nav className="absolute right-0 top-14 w-[min(16rem,calc(100vw-2rem))] rounded-2xl border border-slate-200 bg-white p-2 shadow-xl" aria-label="Mobile navigation">
-              {links.map(([label, href]) => {
+              {mobileLinks.map(([label, href]) => {
                 const target = href.split('#')[0] || '/';
                 const active = target !== '/' && path === target;
                 return <a key={href} href={href} aria-current={active ? 'page' : undefined} className={`block min-h-12 rounded-xl px-4 py-3 text-sm font-semibold ${active ? 'bg-[#2185DC]/10 text-[#2185DC]' : 'text-slate-700 hover:bg-slate-100'}`}>{label}</a>;
