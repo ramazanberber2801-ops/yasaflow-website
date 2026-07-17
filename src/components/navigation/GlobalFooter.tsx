@@ -14,7 +14,7 @@ export function GlobalFooter({ locale }: { locale: Locale }) {
     [t.privacy, '/privacy'], [t.terms, '/terms'], [t.faq, '/faq'], [t.security, '/security'],
   ] as const;
 
-  return <footer className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8">
+  return <footer data-global-footer="true" className="border-t border-slate-200 bg-white px-5 py-12 sm:px-8">
     <div className="mx-auto grid max-w-7xl gap-9 lg:grid-cols-[1fr_auto] lg:items-start">
       <div><Logo /><p className="mt-4 max-w-md text-sm leading-6 text-slate-500">{t.description}</p><a href="mailto:hello@yasaflow.com" className="mt-4 inline-block text-sm font-semibold text-[#2185DC]">hello@yasaflow.com</a></div>
       <div className="grid gap-7 sm:grid-cols-[auto_auto] lg:justify-items-end">
