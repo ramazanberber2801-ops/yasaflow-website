@@ -69,11 +69,11 @@ export const moduleCatalog: readonly YasaflowModule[] = [
   },
   {
     id: 'donations',
-    name: { en: 'Donations & Payments', nb: 'Donasjoner og betalinger', tr: 'Bağış ve Ödemeler' },
+    name: { en: 'External Donation Link', nb: 'Ekstern donasjonslenke', tr: 'Harici Bağış Bağlantısı' },
     description: {
-      en: 'Accept easy digital donations and payments through cards, Stripe and supported local payment methods.',
-      nb: 'Gjør det enkelt å ta imot donasjoner og betalinger med Vipps, kort og støttede betalingsløsninger.',
-      tr: 'Kart, Stripe, mobil ödeme ve desteklenen yerel ödeme yöntemleriyle kolayca bağış ve ödeme alın.',
+      en: 'Add a link to your preferred payment provider, such as Vipps, PayPal or another local service. Yasaflow only redirects supporters and never processes or holds payments.',
+      nb: 'Legg til en lenke til ønsket betalingsleverandør, for eksempel Vipps, PayPal eller en lokal tjeneste. Yasaflow videresender kun brukeren og behandler eller oppbevarer aldri betalinger.',
+      tr: 'Vipps, PayPal veya yerel bir hizmet gibi tercih ettiğiniz ödeme sağlayıcısına bağlantı ekleyin. Yasaflow yalnızca kullanıcıyı yönlendirir; ödemeleri işlemez veya saklamaz.',
     },
     category: 'finance', icon: 'circle-dollar-sign', sortOrder: 70, included: false, premium: false,
     monthlyPriceNok: 39, status: 'active', visibleOnWebsite: true,
