@@ -3,7 +3,7 @@ import { CheckCircle2, Loader2, X } from 'lucide-react';
 import { supabase } from './lib/supabase';
 
 type Organization = {
-  id:string; name:string; slug:string; organization_type:string|null; country:string|null; language:string|null; logo_url:string|null;
+  id:string; name:string; slug:string|null; organization_type:string|null; country:string|null; language:string|null; logo_url:string|null;
 };
 type Settings = { description:string; timezone:string; email:string; phone:string; address:string; logo_url:string; favicon_url:string };
 
@@ -15,7 +15,7 @@ const normalizeSlug=(value:string)=>value.toLowerCase().normalize('NFD').replace
 const input='mt-1 w-full rounded-xl border border-slate-200 bg-white p-3 outline-none focus:border-blue-500';
 
 export default function OrganizationSettingsModal({organization,onClose,onSaved}:Props){
-  const [form,setForm]=useState({name:organization.name,slug:organization.slug,organizationType:organization.organization_type||'Forening',country:organization.country||'Norge',language:organization.language||'Norsk',description:'',timezone:'Europe/Oslo',email:'',phone:'',address:'',logoUrl:organization.logo_url||'',faviconUrl:''});
+  const [form,setForm]=useState({name:organization.name,slug:organization.slug||'',organizationType:organization.organization_type||'Forening',country:organization.country||'Norge',language:organization.language||'Norsk',description:'',timezone:'Europe/Oslo',email:'',phone:'',address:'',logoUrl:organization.logo_url||'',faviconUrl:''});
   const [loading,setLoading]=useState(true);const [busy,setBusy]=useState(false);const [error,setError]=useState('');const [saved,setSaved]=useState(false);const [slugAvailable,setSlugAvailable]=useState<boolean|null>(null);
 
   useEffect(()=>{const load=async()=>{if(!supabase)return;const {data}=await supabase.from('organization_settings').select('description,timezone,email,phone,address,logo_url,favicon_url').eq('organization_id',organization.id).maybeSingle();const value=(data||{}) as Partial<Settings>;setForm(current=>({...current,description:value.description||'',timezone:value.timezone||'Europe/Oslo',email:value.email||'',phone:value.phone||'',address:value.address||'',logoUrl:value.logo_url||current.logoUrl,faviconUrl:value.favicon_url||''}));setLoading(false);};void load();},[organization.id]);
