@@ -30,3 +30,5 @@ npm run build
 - `PROJECT_STATUS.md` — current state and source of truth
 - `ROADMAP.md` — future phases and ideas
 - `TODO.md` — next concrete tasks
+
+Deployment trigger: 2026-07-18
