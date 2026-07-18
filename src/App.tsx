@@ -61,6 +61,8 @@ const text: Record<Locale, Text> = {
 
 const reasonIcons = [Layers3, Sparkles, ShieldCheck, Users];
 const sectionIds = ['products', 'solutions', 'pricing', 'why-yasaflow', 'contact'];
+const customerPortalUrl = 'https://portal.yasaflow.com/kunde';
+const registrationUrl = 'https://portal.yasaflow.com/registrer';
 
 function Button({ children, secondary = false }: { children: ReactNode; secondary?: boolean }) {
   return <a href="/pricing" className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-5 text-sm font-semibold transition focus:outline-none focus:ring-4 focus:ring-[#2185DC]/20 ${secondary ? 'border border-slate-200 bg-white text-slate-900 hover:bg-slate-50' : 'bg-[#2185DC] text-white shadow-[0_12px_30px_rgba(33,133,220,.24)] hover:bg-[#1877c8]'}`}>{children}</a>;
@@ -74,8 +76,8 @@ export default function App() {
 
   return <div className="overflow-hidden bg-white text-slate-950">
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8"><a href="#top" aria-label="Yasaflow home"><Logo /></a><nav className="hidden items-center gap-6 lg:flex">{t.nav.map((label, index) => <a key={label} className="text-sm font-medium text-slate-600 hover:text-slate-950" href={`#${sectionIds[index]}`}>{label}</a>)}</nav><div className="hidden items-center gap-3 lg:flex"><LanguageSelector compact /><a href="#contact" className="px-3 text-sm font-semibold">{t.login}</a><Button>{t.start}</Button></div><button type="button" aria-label="Toggle menu" aria-expanded={menuOpen} className="rounded-xl border border-slate-200 p-2 lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></div>
-      {menuOpen && <nav className="border-t border-slate-200 bg-white px-5 py-5 lg:hidden"><div className="mb-3"><LanguageSelector /></div>{t.nav.map((label, index) => <a key={label} onClick={() => setMenuOpen(false)} className="block py-3 font-medium" href={`#${sectionIds[index]}`}>{label}</a>)}</nav>}
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8"><a href="#top" aria-label="Yasaflow home"><Logo /></a><nav className="hidden items-center gap-6 lg:flex">{t.nav.map((label, index) => <a key={label} className="text-sm font-medium text-slate-600 hover:text-slate-950" href={`#${sectionIds[index]}`}>{label}</a>)}</nav><div className="hidden items-center gap-3 lg:flex"><LanguageSelector compact /><a href={customerPortalUrl} className="px-3 text-sm font-semibold">{t.login}</a><a href={registrationUrl} className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-[#2185DC] px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,133,220,.24)] transition hover:bg-[#1877c8]">{t.start}</a></div><button type="button" aria-label="Toggle menu" aria-expanded={menuOpen} className="rounded-xl border border-slate-200 p-2 lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button></div>
+      {menuOpen && <nav className="border-t border-slate-200 bg-white px-5 py-5 lg:hidden"><div className="mb-3"><LanguageSelector /></div>{t.nav.map((label, index) => <a key={label} onClick={() => setMenuOpen(false)} className="block py-3 font-medium" href={`#${sectionIds[index]}`}>{label}</a>)}<div className="mt-4 grid gap-3 border-t border-slate-200 pt-5"><a href={customerPortalUrl} onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center rounded-2xl border border-slate-300 px-5 text-sm font-semibold text-slate-900">{t.login}</a><a href={registrationUrl} onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center rounded-2xl bg-[#2185DC] px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(33,133,220,.24)]">{t.start}</a></div></nav>}
     </header>
 
     <main id="top">
