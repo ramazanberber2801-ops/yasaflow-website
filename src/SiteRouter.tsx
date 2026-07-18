@@ -1,5 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
-import CustomerPortal from './CustomerPortal';
+import CustomerPortal from './CustomerPortalV2';
 import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
