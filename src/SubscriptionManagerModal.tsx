@@ -12,7 +12,7 @@ type Organization = {
 type Props = {
   organization: Organization;
   onClose: () => void;
-  onOpenBilling: (organization: Organization) => Promise<void>;
+  onOpenBilling: () => Promise<void>;
 };
 
 const CHECKOUT_API = 'https://yasaflow.vercel.app/api/creem-checkout';
@@ -57,7 +57,7 @@ export default function SubscriptionManagerModal({ organization, onClose, onOpen
     setBillingBusy(true);
     setError('');
     try {
-      await onOpenBilling(organization);
+      await onOpenBilling();
     } catch {
       setError('Kunne ikke åpne abonnementsportalen.');
       setBillingBusy(false);
