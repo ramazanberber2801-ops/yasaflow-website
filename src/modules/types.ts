@@ -9,7 +9,7 @@ export type ModuleCategory =
   | 'religion'
   | 'other';
 
-export type ModuleLocale = 'en' | 'nb' | 'tr';
+export type ModuleLocale = 'en' | 'nb' | 'da' | 'tr';
 export type LocalizedModuleText = Record<ModuleLocale, string>;
 
 export type YasaflowModule = {
