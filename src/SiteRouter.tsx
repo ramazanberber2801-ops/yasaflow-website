@@ -10,6 +10,7 @@ import PublicSupportPage from './PublicSupportPages';
 import ResourcesPage from './ResourcesPage';
 import { ResourcesMetadata } from './ResourcesMetadata';
 import TrustPage from './TrustPages';
+import ClinicPage from './ClinicPage';
 import { AccessibilityEnhancer } from './components/navigation/AccessibilityEnhancer';
 import { FeedbackLauncher } from './components/navigation/FeedbackLauncher';
 import { GlobalFooter } from './components/navigation/GlobalFooter';
@@ -41,6 +42,7 @@ export default function SiteRouter() {
   if (path === '/login' || path === '/dashboard' || path === '/portal') return <PortalRouter />;
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
   if (path === '/pricing') return withPublicChrome(<PricingPage />);
+  if (path === '/klinikker' || path === '/clinics') return withPublicChrome(<ClinicPage locale={locale} />);
   if (path === '/privacy') return withPublicChrome(<LegalPage type="privacy" locale={locale} />);
   if (path === '/terms') return withPublicChrome(<LegalPage type="terms" locale={locale} />);
   if (path === '/refund') return withPublicChrome(<LegalPage type="refund" locale={locale} />);
