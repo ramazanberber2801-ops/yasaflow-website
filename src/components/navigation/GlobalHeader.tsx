@@ -2,10 +2,10 @@ import { Menu } from 'lucide-react';
 import { Logo } from '../branding/Logo';
 import { LanguageSelector, type Locale } from '../../i18n';
 
-const copy: Record<Locale, { products: string; solutions: string; pricing: string; resources: string; about: string; contact: string; menu: string; skip: string }> = {
-  en: { products: 'Products', solutions: 'Solutions', pricing: 'Pricing', resources: 'Resources', about: 'About', contact: 'Contact', menu: 'Open navigation', skip: 'Skip to main content' },
-  nb: { products: 'Produkter', solutions: 'Løsninger', pricing: 'Priser', resources: 'Ressurser', about: 'Om oss', contact: 'Kontakt', menu: 'Åpne navigasjon', skip: 'Hopp til hovedinnhold' },
-  tr: { products: 'Ürünler', solutions: 'Çözümler', pricing: 'Fiyatlandırma', resources: 'Kaynaklar', about: 'Hakkımızda', contact: 'İletişim', menu: 'Navigasyonu aç', skip: 'Ana içeriğe geç' },
+const copy: Record<Locale, { products: string; solutions: string; clinics: string; pricing: string; resources: string; about: string; contact: string; menu: string; skip: string }> = {
+  en: { products: 'Products', solutions: 'Solutions', clinics: 'Clinics', pricing: 'Pricing', resources: 'Resources', about: 'About', contact: 'Contact', menu: 'Open navigation', skip: 'Skip to main content' },
+  nb: { products: 'Produkter', solutions: 'Løsninger', clinics: 'Klinikker', pricing: 'Priser', resources: 'Ressurser', about: 'Om oss', contact: 'Kontakt', menu: 'Åpne navigasjon', skip: 'Hopp til hovedinnhold' },
+  tr: { products: 'Ürünler', solutions: 'Çözümler', clinics: 'Klinikler', pricing: 'Fiyatlandırma', resources: 'Kaynaklar', about: 'Hakkımızda', contact: 'İletişim', menu: 'Navigasyonu aç', skip: 'Ana içeriğe geç' },
 };
 
 export function GlobalHeader({ locale, path }: { locale: Locale; path: string }) {
@@ -13,6 +13,7 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
   const links = [
     [t.products, '/modules'],
     [t.solutions, '/#solutions'],
+    [t.clinics, '/klinikker'],
     [t.resources, '/resources'],
     [t.about, '/about'],
     [t.contact, '/contact'],
