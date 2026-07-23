@@ -14,6 +14,8 @@ const routes = {
   roadmap: { title: 'Yasaflow Roadmap — Product direction', description: 'See the product direction and planned development areas for the Yasaflow SaaS platform.' },
   integrations: { title: 'Yasaflow Integrations — External services and communication', description: 'Explore current and planned Yasaflow integrations. External donation links redirect to third-party providers; Yasaflow does not process donation payments.' },
   pricing: { title: 'Yasaflow Pricing — 7-day free trial', description: 'Start with a 7-day free trial. The Yasaflow cloud-based SaaS platform starts from NOK 349 per month, with optional paid add-on modules.' },
+  klinikker: { title: 'Yasaflow Klinikk — Digital klinikkplattform', description: 'Opprett klinikken med en kort onboarding og administrer klinikkprofil, adresse, ansatte, behandlinger, kunder og klinikkmoduler i Yasaflow.' },
+  clinics: { title: 'Yasaflow Clinics — Digital clinic platform', description: 'Create your clinic with a short onboarding and manage the clinic profile, address, staff, treatments, customers and clinic modules in Yasaflow.' },
   privacy: { title: 'Privacy Policy — Yasaflow', description: 'Read how Yasaflow processes personal data when you visit the website, create an account or use the SaaS platform.' },
   terms: { title: 'Terms and Conditions — Yasaflow', description: 'Read the terms for Yasaflow’s 7-day free trial, SaaS subscription pricing, automatic renewal, cancellation and platform use.' },
   refund: { title: 'Refund and Cancellation Policy — Yasaflow', description: 'Read Yasaflow’s refund and cancellation policy for the 7-day free trial, subscription renewals and optional add-on modules.' },
