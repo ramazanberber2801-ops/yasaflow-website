@@ -13,12 +13,19 @@ export function GlobalHeader({ locale, path }: { locale: Locale; path: string })
   const links = [
     [t.products, '/modules'],
     [t.solutions, '/#solutions'],
+    [t.resources, '/resources'],
+    [t.about, '/about'],
+    [t.contact, '/contact'],
+  ] as const;
+  const mobileLinks = [
+    [t.pricing, '/pricing'],
+    [t.products, '/modules'],
+    [t.solutions, '/#solutions'],
     [t.clinics, '/klinikker'],
     [t.resources, '/resources'],
     [t.about, '/about'],
     [t.contact, '/contact'],
   ] as const;
-  const mobileLinks = [[t.pricing, '/pricing'], ...links] as const;
   const pricingActive = path === '/pricing';
 
   return <>
