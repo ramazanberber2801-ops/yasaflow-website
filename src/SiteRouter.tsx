@@ -1,5 +1,4 @@
 import type { MouseEvent, ReactNode } from 'react';
-import PortalRouter from './PortalRouter';
 import LegalPage from './LegalPages';
 import OnboardingPage from './OnboardingPage';
 import ModuleLibrary from './ModuleLibrary';
@@ -24,6 +23,12 @@ import { PublicUiPolish } from './components/product/PublicUiPolish';
 import { useI18n } from './i18n';
 
 const productLabels = new Set(['Products', 'Produkter', 'Ürünler']);
+const sharedPortalUrl = 'https://portal.yasaflow.com/';
+
+function SharedPortalRedirect() {
+  window.location.replace(sharedPortalUrl);
+  return <main className="flex min-h-screen items-center justify-center bg-slate-50 px-5 text-center text-slate-700">Åpner Yasaflow-portalen…</main>;
+}
 
 export default function SiteRouter() {
   const { locale } = useI18n();
@@ -39,7 +44,7 @@ export default function SiteRouter() {
     <GlobalFooter locale={locale} />
   </>;
 
-  if (path === '/login' || path === '/dashboard' || path === '/portal') return <PortalRouter />;
+  if (path === '/login' || path === '/dashboard' || path === '/portal') return <SharedPortalRedirect />;
   if (path === '/get-started' || path === '/register') return <OnboardingPage />;
   if (path === '/pricing') return withPublicChrome(<PricingPage />);
   if (path === '/klinikker' || path === '/clinics') return withPublicChrome(<ClinicPage locale={locale} />);
@@ -63,7 +68,7 @@ export default function SiteRouter() {
     const label = anchor.textContent?.trim();
     if (label && ['Logg inn','Log in','Giriş yap'].includes(label)) {
       event.preventDefault();
-      window.location.assign('/login');
+      window.location.assign(sharedPortalUrl);
       return;
     }
     if (!label || !productLabels.has(label)) return;
